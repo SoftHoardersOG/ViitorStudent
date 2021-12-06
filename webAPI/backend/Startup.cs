@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
+using backend.DbContext;
 using backend.Mappers;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,9 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DbCon>(option =>
+                option.UseSqlServer(Configuration.GetConnectionString("Database")));
+
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()

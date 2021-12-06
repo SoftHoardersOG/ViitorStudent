@@ -1,10 +1,10 @@
 ﻿{
    "CodeGenerationMode": 0,
-   "ContextClassName": "LedblinkerContext",
+   "ContextClassName": "DbCon",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
-   "IncludeConnectionString": false,
+   "IncludeConnectionString": true,
    "ModelNamespace": null,
    "OutputContextPath": "DbContext",
    "OutputPath": "Entities",
@@ -14,11 +14,87 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[dbo].[Commands]",
+         "Name": "[dbo].[City]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Club]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Interest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Job]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Meeting]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Reviews]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Subject]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[University]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UniversityCity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UniversityClub]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UniversityInterest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UniversityJob]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UniversitySubject]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[User]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserCity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserClub]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserInterest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserJob]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserMetings]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserSubject]",
          "ObjectType": 0
       }
    ],
-   "UiHint": "LAPTOP-3K76L9IG.LedBlinker",
+   "UiHint": "DESKTOP-G0BD7P1.ViitorStudent",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,
    "UseDbContextSplitting": false,
