@@ -5,6 +5,13 @@
     <UserSecretsId>e90a64f8-a481-4ff6-806d-64d40d95500f</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="CodeTemplates\**" />
+    <Content Remove="CodeTemplates\**" />
+    <EmbeddedResource Remove="CodeTemplates\**" />
+    <None Remove="CodeTemplates\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <None Remove=".gitignore" />
