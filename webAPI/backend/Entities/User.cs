@@ -27,7 +27,7 @@ namespace backend.Entities
         public string firstName { get; set; }
         public int? age { get; set; }
         public string role { get; set; }
-        public byte[] join_date { get; set; }
+        public DateTime? join_date { get; set; }
 
         public virtual ICollection<Reviews> Reviews { get; set; }
         public virtual ICollection<UserCity> UserCity { get; set; }
