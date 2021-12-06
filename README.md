@@ -6,6 +6,7 @@
         - EF Core Power Tools Extension
         - Entity Framework Nugget
         - SQL Server & SSMS
+        - ReSharper
 
 
         

@@ -15,7 +15,7 @@ namespace backend.Entities
 
         public int meeting_id { get; set; }
         public string name { get; set; }
-        public byte[] date { get; set; }
+        public DateTime date { get; set; }
         public string description { get; set; }
         public int price { get; set; }
         public string link { get; set; }
