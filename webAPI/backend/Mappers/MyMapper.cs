@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+
+namespace backend.Mappers
+{
+    public class MyMapper : Profile
+    {
+        public MyMapper()
+        {
+
+        }
+
+    }
+}
