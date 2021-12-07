@@ -37,7 +37,7 @@ namespace backend.Controllers
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return NotFound();
+                return NotFound("An error occurred when trying to connect to database! ");
             }
         }
 
