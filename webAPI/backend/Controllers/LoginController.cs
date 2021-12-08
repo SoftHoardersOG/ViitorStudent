@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using backend.DbContext;
 using backend.Entities;
+using backend.IServices;
 using backend.Mappers;
 using backend.Models;
 
@@ -16,13 +17,11 @@ namespace backend.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private readonly DbCon _dbCon;
-        private readonly IMapper _mapper;
+        private readonly IRegisterService _registerService;
 
-        public LoginController(DbCon dbCon,IMapper mapper)
+        public LoginController(IRegisterService registerService)
         {
-            _dbCon = dbCon;
-            _mapper = mapper;
+            _registerService = registerService;
         }
 
         [HttpPost]
@@ -30,9 +29,14 @@ namespace backend.Controllers
         {
             try
             {
-                _dbCon.Add(_mapper.Map<User>(userModel));
-                _dbCon.SaveChanges();
-                return Ok();
+                if (_registerService.Register(userModel))
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return Unauthorized("Username already exists.");
+                }
             }
             catch (Exception e)
             {
@@ -40,6 +44,5 @@ namespace backend.Controllers
                 return NotFound("An error occurred when trying to connect to database! ");
             }
         }
-
     }
 }

@@ -6,7 +6,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
 using backend.DbContext;
+using backend.IServices;
 using backend.Mappers;
+using backend.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend
@@ -37,6 +39,7 @@ namespace backend
 
             IMapper mapper = new MapperConfiguration(a => { a.AddProfile(new MyMapper()); }).CreateMapper();
             services.AddSingleton(mapper);
+            services.AddScoped<IRegisterService,RegisterService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
