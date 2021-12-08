@@ -10,7 +10,8 @@ using backend.Entities;
 using backend.IServices;
 using backend.Mappers;
 using backend.Models;
-using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace backend.Controllers
 {
@@ -26,7 +27,7 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        [Authorize]//(AuthenticationSchemes = "Bearer")]
+        [Authorize]
         public ActionResult RegisterUser(RegistrationModel registrationModel)
         {
             try

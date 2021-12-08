@@ -13,7 +13,7 @@ namespace backend.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private ILoginService _loginService;
+        private readonly ILoginService _loginService;
         public LoginController(ILoginService loginService)
         {
             _loginService = loginService;
