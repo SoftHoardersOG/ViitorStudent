@@ -6,8 +6,8 @@ using backend.Models;
 
 namespace backend.IServices
 {
-    public interface IRegisterService
+    public interface ILoginService
     {
-        bool Register(RegistrationModel registrationModel);
+        string AuthenticateUser(LoginModel loginModel);
     }
 }

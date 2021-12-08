@@ -7,6 +7,7 @@ using backend.DbContext;
 using backend.Entities;
 using backend.IServices;
 using backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Services
 {
@@ -21,15 +22,16 @@ namespace backend.Services
             _mapper = mapper;
         }
 
-        private bool CanRegister(UserModel userModel)
+        private async Task<bool> CanRegister(RegistrationModel registrationModel)
         {
-            return _dbCon.Set<User>().SingleOrDefault(u => u.username == userModel.username) == null;
+            var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == registrationModel.username);
+            return user == null;
         }
 
-        public bool Register(UserModel userModel)
+        public bool Register(RegistrationModel registrationModel)
         {
-            if (!CanRegister(userModel)) return false;
-            _dbCon.Add(_mapper.Map<User>(userModel));
+            if (!CanRegister(registrationModel).Result) return false;
+            _dbCon.Add(_mapper.Map<User>(registrationModel));
             _dbCon.SaveChanges();
             return true;
         }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace backend.Models
 {
-    public class UserModel
+    public class RegistrationModel
     {
         public string username { get; set; }
         public string password { get; set; }

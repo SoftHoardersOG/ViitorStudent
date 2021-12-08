@@ -4,11 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using backend.DbContext;
-using backend.Entities;
 using backend.IServices;
-using backend.Mappers;
 using backend.Models;
 
 namespace backend.Controllers
@@ -17,32 +13,18 @@ namespace backend.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private readonly IRegisterService _registerService;
-
-        public LoginController(IRegisterService registerService)
+        private ILoginService _loginService;
+        public LoginController(ILoginService loginService)
         {
-            _registerService = registerService;
+            _loginService = loginService;
         }
 
         [HttpPost]
-        public ActionResult RegisterUser(UserModel userModel)
+        public ActionResult Login(LoginModel loginModel)
         {
-            try
-            {
-                if (_registerService.Register(userModel))
-                {
-                    return Ok();
-                }
-                else
-                {
-                    return Unauthorized("Username already exists.");
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return NotFound("An error occurred when trying to connect to database! ");
-            }
+            if(_loginService.AuthenticateUser(loginModel)!=null)
+                return Ok(_loginService.AuthenticateUser(loginModel));
+            return Unauthorized("wrong credentials");
         }
     }
 }
