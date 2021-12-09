@@ -32,8 +32,8 @@ namespace backend.Services
 
         private async Task<bool> VerifyCredentials(LoginModel loginModel)
         {
-            var user = await _dbCon.Set<User>().FirstAsync(u => u.username == loginModel.username);
-            return user.password == loginModel.passowrd;
+            var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == loginModel.username);
+            return (user != null) && (user.password == loginModel.passowrd);
         }
 
         private string GenerateJwt(LoginModel loginModel)
