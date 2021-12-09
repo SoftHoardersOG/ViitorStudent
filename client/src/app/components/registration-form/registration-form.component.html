@@ -1,0 +1,37 @@
+<div style="width:100% " fxLayoutAlign="center center" class="">
+  <form style="padding:30px" class="example-form mat-app-background mat-elevation-z8" fxLayout="column" fxLayoutAlign="space-around center">
+      <h2>Create an account</h2>
+      <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Username</mat-label>
+      <input matInput required placeholder="Ex. 0" [(ngModel)]="registrationModel.username" name="v1">
+      <mat-error>Username is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Ex. 0" [(ngModel)]="registrationModel.password" name="v2">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.firstName" name="v3">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.lastName" name="v4">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Age</mat-label>
+      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.age" name="v5">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.email" name="v6">
+      </mat-form-field>
+
+      <button (click)="addUser()" mat-button color="accent">Submit</button>
+  </form>
+</div>

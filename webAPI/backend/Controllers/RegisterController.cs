@@ -27,14 +27,13 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult RegisterUser(RegistrationModel registrationModel)
         {
             try
             {
                 if (_registerService.Register(registrationModel))
                 {
-                    return Ok();
+                    return Ok(registrationModel);
                 }
                 else
                 {

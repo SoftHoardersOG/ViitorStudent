@@ -9,11 +9,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { Router,RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './components/main/main.component';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
