@@ -1,0 +1,10 @@
+MAIN:
+----Navbar
+----------LoginComponent
+----------AboutUs
+----------*UserProfile
+----LandingPage
+----------UniversityCard
+          ----------UniversityInfo
+----------RegistrationComponent
+          ----------SuveryComponent

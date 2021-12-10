@@ -23,7 +23,7 @@ export class RegistrationFormComponent implements OnInit {
   addUser(): void {
     this.registrationService
       .registerUser(this.registrationModel)
-      .subscribe((data: RegistrationModel) => console.log(data), err => {this._matSnackBar.open(err.error,"",{duration:2000})});
+      .subscribe((data: RegistrationModel) => console.log(data), err => {this._matSnackBar.open(err.error,"",{duration:2000,panelClass:['mat-toolbar','mat-warn']})});
      // this.registrationModel = new RegistrationModel();
      // this.registartionForm.form.markAsPristine();
 
@@ -33,9 +33,6 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationService
       .verifyUsername(this.registrationModel.username)
       .subscribe((data: boolean) => {
-        console.log(data);
-        console.log("In subscribe");
-        
         this.isValid = data;
         if (!this.isValid)
           this.registartionForm.form.controls.username.setErrors({
