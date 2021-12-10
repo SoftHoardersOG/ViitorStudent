@@ -14,6 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const idToken = localStorage.getItem('jwt');
+    req.headers.set('Keep-Alive',"timeout=15")
 
     if (idToken) {
       const cloned = req.clone({

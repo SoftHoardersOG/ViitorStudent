@@ -43,7 +43,7 @@ namespace backend
                 });
 
             services.AddDbContext<DbCon>(option =>
-                option.UseSqlServer(Configuration.GetConnectionString("Database")));
+                    option.UseSqlServer(Configuration.GetConnectionString("Database")));
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
