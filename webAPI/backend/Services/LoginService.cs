@@ -3,9 +3,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using backend.DbContext;
 using backend.Entities;
 using backend.IServices;
+using backend.Mappers;
 using backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,11 +19,13 @@ namespace backend.Services
     {
         private readonly IConfiguration _config;
         private readonly DbCon _dbCon;
+        private readonly IMapper _mapper;
 
-        public LoginService(IConfiguration config, DbCon dbCon)
+        public LoginService(IConfiguration config, DbCon dbCon, IMapper mapper)
         {
             _config = config;
             _dbCon = dbCon;
+            _mapper = mapper;
         }
 
         private async Task<string> GetRole(LoginModel loginModel)
@@ -57,6 +61,19 @@ namespace backend.Services
         public string AuthenticateUser(LoginModel loginModel)
         {
             return VerifyCredentials(loginModel).Result ? GenerateJwt(loginModel) : null;
+        }
+
+        private async Task<User> GetUser(string username)
+        {
+            User user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == username);
+            return user;
+
+        }
+
+        public UserModel GetCurrentUser(string username)
+        {
+            User user = GetUser(username).Result;
+            return _mapper.Map<UserModel>(user);
         }
     }
 }

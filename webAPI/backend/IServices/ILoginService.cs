@@ -9,5 +9,6 @@ namespace backend.IServices
     public interface ILoginService
     {
         string AuthenticateUser(LoginModel loginModel);
+        UserModel GetCurrentUser(string username);
     }
 }

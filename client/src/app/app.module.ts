@@ -19,9 +19,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
+import { LandingComponent } from './components/landing/landing.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, LandingComponent, NavbarComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -33,7 +38,9 @@ import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
     MatButtonModule,
     FormsModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

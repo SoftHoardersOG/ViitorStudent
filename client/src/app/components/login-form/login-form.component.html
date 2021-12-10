@@ -1,11 +1,15 @@
-<div style="width: 100%" fxLayoutAlign="center center" class="">
+
+<div style="width: 100%" fxLayoutAlign="center center" >
   <form
-    style="padding: 30px"
-    class="example-form mat-app-background mat-elevation-z8"
-    fxLayout="column"
-    fxLayoutAlign="space-around center"
-    #loginForm = "ngForm"
+
+  class="example-form mat-app-background mat-elevation-z8"
+  fxLayout="column"
+  fxLayoutAlign="space-around center"
+  #loginForm = "ngForm"
   >
+  <div style="width: 100%;" >
+  <button mat-mini-fab mat-dialog-close style=" margin: 10px; float: right;"><mat-icon>close</mat-icon></button>
+</div>
     <h2>Login into your account</h2>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Username</mat-label>
@@ -31,6 +35,6 @@
       <mat-error>Password is required!</mat-error>
     </mat-form-field>
 
-    <button [disabled]="!loginForm.valid" (click)="loginUser()" mat-button color="accent">Submit</button>
+    <button [disabled]="!loginForm.valid" mat-dialog-close="true" (click)="loginUser()" mat-button color="accent">Submit</button>
   </form>
 </div>
