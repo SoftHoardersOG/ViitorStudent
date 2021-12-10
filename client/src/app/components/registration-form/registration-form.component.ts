@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { RegistrationModel } from 'src/app/models/registration.model';
 import { RegistrationService } from 'src/app/services/registration.service';
 
@@ -11,7 +11,7 @@ import { RegistrationService } from 'src/app/services/registration.service';
 export class RegistrationFormComponent implements OnInit {
   @ViewChild('registrationForm') registartionForm: any ;
 
-  constructor(private registrationService: RegistrationService) {}
+  constructor(private registrationService: RegistrationService, private _matSnackBar : MatSnackBar) {}
 
 
   registrationModel: RegistrationModel = new RegistrationModel();
@@ -23,23 +23,25 @@ export class RegistrationFormComponent implements OnInit {
   addUser(): void {
     this.registrationService
       .registerUser(this.registrationModel)
-      .subscribe((data: RegistrationModel) => console.log(data));
-      this.registrationModel = new RegistrationModel();
-      this.registartionForm.form.markAsPristine();
+      .subscribe((data: RegistrationModel) => console.log(data), err => {this._matSnackBar.open(err.error,"",{duration:2000})});
+     // this.registrationModel = new RegistrationModel();
+     // this.registartionForm.form.markAsPristine();
 
   }
 
   verifyUsername(): void {
-    console.log(this.registartionForm);
-
     this.registrationService
       .verifyUsername(this.registrationModel.username)
       .subscribe((data: boolean) => {
+        console.log(data);
+        console.log("In subscribe");
+        
         this.isValid = data;
         if (!this.isValid)
           this.registartionForm.form.controls.username.setErrors({
             notUnique: true,
           });
+      }, error => { console.log(error.error);
       });
   }
 

@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   HttpClientModule,
-  HttpHandler,
-  HttpEvent,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
@@ -15,7 +13,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './components/main/main.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
@@ -32,7 +32,8 @@ import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
