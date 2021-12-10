@@ -5,11 +5,10 @@ import { apiURL } from 'src/environments/environment';
 import { RegistrationModel } from '../models/registration.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RegistrationService {
-  constructor(private http : HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
 public verifyUsername(username:string) : Observable<boolean>{
   return this.http.get<boolean>(`${apiURL}/Register?username=${username}`)

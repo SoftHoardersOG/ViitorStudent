@@ -1,24 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import {MatTableModule} from '@angular/material/table';
+import {
+  HttpClientModule,
+  HttpHandler,
+  HttpEvent,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { Router,RouterModule } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    RegistrationFormComponent
-  ],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -31,7 +34,9 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
     FormsModule,
     MatIconModule
   ],
-  providers: [],
-  bootstrap:[MainComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [MainComponent],
 })
-export class AppModule { }
+export class AppModule {}

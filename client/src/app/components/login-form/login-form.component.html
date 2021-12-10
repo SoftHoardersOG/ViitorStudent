@@ -1,0 +1,36 @@
+<div style="width: 100%" fxLayoutAlign="center center" class="">
+  <form
+    style="padding: 30px"
+    class="example-form mat-app-background mat-elevation-z8"
+    fxLayout="column"
+    fxLayoutAlign="space-around center"
+    #loginForm = "ngForm"
+  >
+    <h2>Login into your account</h2>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        required
+        placeholder="username"
+        [(ngModel)]="loginModel.username"
+        name="v1"
+      />
+      <mat-error>Username is required!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        required
+        placeholder="password"
+        [(ngModel)]="loginModel.password"
+        name="v2"
+      />
+      <mat-error>Password is required!</mat-error>
+    </mat-form-field>
+
+    <button [disabled]="!loginForm.valid" (click)="loginUser()" mat-button color="accent">Submit</button>
+  </form>
+</div>
