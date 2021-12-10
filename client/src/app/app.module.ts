@@ -19,9 +19,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
+import { BackgroundComponent } from './background/background.component';
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, BackgroundComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
