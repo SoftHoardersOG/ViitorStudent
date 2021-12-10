@@ -5,13 +5,12 @@ import { apiURL } from 'src/environments/environment';
 import { RegistrationModel } from '../models/registration.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RegistrationService {
-  constructor(private http : HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
-  public registerUser(user : RegistrationModel) : Observable<RegistrationModel>{
-    return this.http.post<RegistrationModel>(`${apiURL}/Register`,user);
+  public registerUser(user: RegistrationModel): Observable<RegistrationModel> {
+    return this.http.post<RegistrationModel>(`${apiURL}/Register`, user);
   }
 }

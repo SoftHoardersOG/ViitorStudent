@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend.IServices;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -19,11 +20,13 @@ namespace backend.Controllers
             _loginService = loginService;
         }
 
-        [HttpPost]
+        [HttpPost,Authorize]
         public ActionResult Login(LoginModel loginModel)
         {
-            if(_loginService.AuthenticateUser(loginModel)!=null)
-                return Ok(_loginService.AuthenticateUser(loginModel));
+            // var result = _loginService.AuthenticateUser(loginModel);
+            // if(result)
+            if (_loginService.AuthenticateUser(loginModel)!=null)
+                return Ok( new {token = _loginService.AuthenticateUser(loginModel) });
             return Unauthorized("wrong credentials");
         }
     }

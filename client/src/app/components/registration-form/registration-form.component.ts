@@ -8,15 +8,14 @@ import { RegistrationService } from 'src/app/services/registration.service';
   styleUrls: ['./registration-form.component.css'],
 })
 export class RegistrationFormComponent implements OnInit {
-
-
   constructor(private registrationService: RegistrationService) {}
 
   registrationModel: RegistrationModel = new RegistrationModel();
-  ngOnInit(): void {};
+  ngOnInit(): void {}
 
-  addUser():void {
-    this.registrationService.registerUser(this.registrationModel).subscribe((data : RegistrationModel) => console.log(data));
+  addUser(): void {
+    this.registrationService
+      .registerUser(this.registrationModel)
+      .subscribe((data: RegistrationModel) => console.log(data));
   }
-
 }
