@@ -7,8 +7,8 @@ namespace backend.Models
 {
     public class LoginModel
     {
-        public string username { get; set; }
-        public string passowrd { get; set; }
+        public string Username { get; set; }
+        public string Passowrd { get; set; }
 
     }
 }

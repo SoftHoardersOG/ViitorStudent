@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { Router,RouterModule } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { RegistrationFormComponent } from './components/registration-form/regist
     MatCheckboxModule,
     MatInputModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap:[MainComponent]

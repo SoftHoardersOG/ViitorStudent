@@ -1,16 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using backend.DbContext;
-using backend.Entities;
 using backend.IServices;
-using backend.Mappers;
 using backend.Models;
-using Microsoft.AspNetCore.Authorization;
 
 
 namespace backend.Controllers
@@ -44,6 +35,19 @@ namespace backend.Controllers
             {
                 Console.WriteLine(e);
                 return NotFound("An error occurred when trying to connect to database! ");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult VerifyUsername(string username)
+        {
+            try
+            {
+                return Ok(_registerService.CanRegister(username).Result);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e); return NotFound("An error occurred when trying to connect to database! ");
             }
         }
 

@@ -11,6 +11,10 @@ export class RegistrationService {
   constructor(private http : HttpClient) {
   }
 
+public verifyUsername(username:string) : Observable<boolean>{
+  return this.http.get<boolean>(`${apiURL}/Register?username=${username}`)
+}
+
   public registerUser(user : RegistrationModel) : Observable<RegistrationModel>{
     return this.http.post<RegistrationModel>(`${apiURL}/Register`,user);
   }

@@ -1,37 +1,129 @@
-<div style="width:100% " fxLayoutAlign="center center" class="">
-  <form style="padding:30px" class="example-form mat-app-background mat-elevation-z8" fxLayout="column" fxLayoutAlign="space-around center">
-      <h2>Create an account</h2>
-      <mat-form-field class="example-full-width" appearance="fill" >
+<div style="width: 100%" fxLayoutAlign="center center" class="">
+  <form
+    style="padding: 30px"
+    class="example-form mat-app-background mat-elevation-z8"
+    fxLayout="column"
+    fxLayoutAlign="space-around center"
+    #registrationForm="ngForm"
+  >
+    <h2>Create an account</h2>
+
+    <!-- USERNAME -->
+    <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Username</mat-label>
-      <input matInput required placeholder="Ex. 0" [(ngModel)]="registrationModel.username" name="v1">
-      <mat-error>Username is required!</mat-error>
-      </mat-form-field>
+      <input
+        type="text"
+        matInput
+        required
+        (focusout)="verifyUsername()"
+        [(ngModel)]="registrationModel.username"
+        name="username"
+        minlength="{{ this.usernameMinLength }}"
+      />
+      <mat-error *ngIf="registrationModel.username == ''; else tooShort"
+        >Username is required!</mat-error
+      >
+      <ng-template #tooShort>
+        <mat-error
+          *ngIf="
+            registrationModel.username.length < this.usernameMinLength;
+            else used
+          "
+        >
+          Username is too short!</mat-error
+        >
+        <ng-template #used>
+          <mat-error>Username already used!</mat-error>
+        </ng-template>
+      </ng-template>
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+    <!-- PASSWORD -->
+    <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Ex. 0" [(ngModel)]="registrationModel.password" name="v2">
-      </mat-form-field>
+      <input
+        matInput
+        required
+        [type]="hide ? 'password' : 'text'"
+        name="password"
+        [(ngModel)]="registrationModel.password"
+        minlength="4"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }} </mat-icon>
+      </button>
+      <mat-error *ngIf="registrationModel.password == ''; else tooShort"
+        >Password is required!</mat-error
+      >
+      <ng-template #tooShort>
+        <mat-error> Password is too short!</mat-error>
+      </ng-template>
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+    <!-- FIRST NAME -->
+    <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>First Name</mat-label>
-      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.firstName" name="v3">
-      </mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Ex. test"
+        [(ngModel)]="registrationModel.firstName"
+        required
+        name="firstName"
+      />
+      <mat-error *ngIf="registrationModel.firstName == ''">First name is required!</mat-error>
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+
+    <!-- LAST NAME -->
+    <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Last Name</mat-label>
-      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.lastName" name="v4">
-      </mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="registrationModel.lastName"
+        name="lastName"
+        required
+        type="text"
+      />
+      <mat-error *ngIf="registrationModel.lastName == ''">Last name is required!</mat-error>
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+<!-- AGE -->
+    <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Age</mat-label>
-      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.age" name="v5">
-      </mat-form-field>
+      <input
+        type="number"
+        required
+        matInput
+        [(ngModel)]="registrationModel.age"
+        name="age"
+      />
+      <mat-error *ngIf="registrationModel.age == 0" >Age is required!</mat-error>
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+<!-- EMAIL -->
+    <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="Ex. test" [(ngModel)]="registrationModel.email" name="v6">
-      </mat-form-field>
+      <input
+       (ngModelChange)="emailValidate()"
+        matInput
+        [(ngModel)]="registrationModel.email"
+        required
+        name="email"
+      />
+      <mat-error *ngIf="registrationModel.email == '';else wrongFormat">Email is required!</mat-error>
+      <ng-template #wrongFormat>
+          <mat-error>Email is not valid!</mat-error>
+      </ng-template>
+    </mat-form-field>
 
-      <button (click)="addUser()" mat-button color="accent">Submit</button>
+    <!-- ADD -->
+    <button [disabled]="!registrationForm.valid" (click)="addUser()" mat-button color="accent">Submit</button>
   </form>
 </div>

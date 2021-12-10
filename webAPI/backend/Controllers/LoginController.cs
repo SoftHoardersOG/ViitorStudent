@@ -23,7 +23,7 @@ namespace backend.Controllers
         public ActionResult Login(LoginModel loginModel)
         {
             if(_loginService.AuthenticateUser(loginModel)!=null)
-                return Ok(_loginService.AuthenticateUser(loginModel));
+                return Ok(new {token = _loginService.AuthenticateUser(loginModel) });
             return Unauthorized("wrong credentials");
         }
     }

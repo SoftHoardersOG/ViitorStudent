@@ -26,14 +26,14 @@ namespace backend.Services
 
         private async Task<string> GetRole(LoginModel loginModel)
         {
-           var user = await _dbCon.Set<User>().FirstAsync(u => u.username == loginModel.username);
+           var user = await _dbCon.Set<User>().FirstAsync(u => u.username == loginModel.Username);
             return  user.role;
         }
 
         private async Task<bool> VerifyCredentials(LoginModel loginModel)
         {
-            var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == loginModel.username);
-            return (user != null) && (user.password == loginModel.passowrd);
+            var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == loginModel.Username);
+            return (user != null) && (user.password == loginModel.Passowrd);
         }
 
         private string GenerateJwt(LoginModel loginModel)
@@ -42,7 +42,7 @@ namespace backend.Services
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[] {
-                new Claim("username", loginModel.username),
+                new Claim("username", loginModel.Username),
                 new Claim("role",GetRole(loginModel).Result)
             };
 

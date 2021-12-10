@@ -9,5 +9,6 @@ namespace backend.IServices
     public interface IRegisterService
     {
         bool Register(RegistrationModel registrationModel);
+        Task<bool> CanRegister(string username);
     }
 }

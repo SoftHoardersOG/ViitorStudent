@@ -22,15 +22,15 @@ namespace backend.Services
             _mapper = mapper;
         }
 
-        private async Task<bool> CanRegister(RegistrationModel registrationModel)
+        public async Task<bool> CanRegister(string username)
         {
-            var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == registrationModel.username);
+            var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == username);
             return user == null;
         }
 
         public bool Register(RegistrationModel registrationModel)
         {
-            if (!CanRegister(registrationModel).Result) return false;
+            if (!CanRegister(registrationModel.Username).Result) return false;
             _dbCon.Add(_mapper.Map<User>(registrationModel));
             _dbCon.SaveChanges();
             return true;
