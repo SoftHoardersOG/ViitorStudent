@@ -1,0 +1,23 @@
+.aboutUs{
+    background-image: url("/assets/gray_logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+#centerInDiv{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    margin-left: 35px;
+    position: relative;
+}
+.textBoxChild{
+    background-color: none;
+    padding: 0px;
+    width:400px
+}
