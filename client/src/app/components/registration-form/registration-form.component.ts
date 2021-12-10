@@ -46,9 +46,29 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   emailValidate():void{
-    if(!this.registrationModel.email.substring(1,this.registrationModel.email.length-1).includes("@"))
+    if(!this.isValidEmail(this.registrationModel.email))
     this.registartionForm.form.controls.email.setErrors({
       notValid: true,
     });
+  }
+  private isValidEmail (email:string):boolean{
+    if (email.includes(' ')){
+      return false;
+    }
+    let words=email.split("@");
+    if (words.length!=2){
+      return false;
+    }
+    if(words[0].length==0||words[1].length==0){
+      return false;
+    }
+    let afterAt = words[1].split(".");
+    if (afterAt.length!=2){
+      return false;
+    }
+    if(afterAt[0].length==0||afterAt[1].length<=1){
+      return false;
+    }
+    return true;
   }
 }
