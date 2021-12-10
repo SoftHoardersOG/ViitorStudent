@@ -1,7 +1,7 @@
 import { apiURL } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { LoginModel } from './../models/login.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserModel } from '../models/user.model';
 
