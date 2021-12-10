@@ -111,7 +111,7 @@
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Email</mat-label>
       <input
-       (ngModelChange)="emailValidate()"
+       (keyup)="emailValidate()"
         matInput
         [(ngModel)]="registrationModel.email"
         required

@@ -23,7 +23,7 @@ export class RegistrationFormComponent implements OnInit {
   addUser(): void {
     this.registrationService
       .registerUser(this.registrationModel)
-      .subscribe((data: RegistrationModel) => console.log(data), err => {this._matSnackBar.open(err.error,"",{duration:2000})});
+      .subscribe((data: RegistrationModel) => console.log(data), err => {this._matSnackBar.open(err.error,"",{duration:2000,panelClass:['mat-toolbar','mat-warn']})});
      // this.registrationModel = new RegistrationModel();
      // this.registartionForm.form.markAsPristine();
 
@@ -33,9 +33,6 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationService
       .verifyUsername(this.registrationModel.username)
       .subscribe((data: boolean) => {
-        console.log(data);
-        console.log("In subscribe");
-        
         this.isValid = data;
         if (!this.isValid)
           this.registartionForm.form.controls.username.setErrors({
@@ -46,9 +43,29 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   emailValidate():void{
-    if(!this.registrationModel.email.substring(1,this.registrationModel.email.length-1).includes("@"))
+    if(!this.isValidEmail(this.registrationModel.email))
     this.registartionForm.form.controls.email.setErrors({
       notValid: true,
     });
+  }
+  private isValidEmail (email:string):boolean{
+    if (email.includes(' ')){
+      return false;
+    }
+    let words=email.split("@");
+    if (words.length!=2){
+      return false;
+    }
+    if(words[0].length==0||words[1].length==0){
+      return false;
+    }
+    let afterAt = words[1].split(".");
+    if (afterAt.length!=2){
+      return false;
+    }
+    if(afterAt[0].length==0||afterAt[1].length<=1){
+      return false;
+    }
+    return true;
   }
 }

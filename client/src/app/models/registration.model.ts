@@ -4,5 +4,5 @@ export class RegistrationModel {
   email: string = '';
   lastName: string = '';
   firstName: string = '';
-  age: number = 0;
+  age?: number;
 }

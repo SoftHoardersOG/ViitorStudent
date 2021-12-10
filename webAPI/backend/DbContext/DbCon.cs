@@ -12,11 +12,13 @@ namespace backend.DbContext
     {
         public DbCon()
         {
+
         }
 
         public DbCon(DbContextOptions<DbCon> options)
             : base(options)
         {
+            
         }
 
         public virtual DbSet<City> City { get; set; }
