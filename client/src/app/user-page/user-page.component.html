@@ -1,0 +1,26 @@
+<div class="userPage"  fxLayout="column" fxLayoutAlign="start center" >
+    <mat-card class="userCard">
+        <div fxLayout="row" fxLayoutAlign="center center" class="innerCard"> 
+            <div class="imageBox">
+                <img src="/assets/white_logo.png" class="image">
+            </div>
+            <div class="infoBox">
+                <mat-card-subtitle>Name: </mat-card-subtitle>
+                <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+                <hr> <br>
+                <mat-card-subtitle>Username: </mat-card-subtitle>
+                <mat-card-title>{{user.username}}</mat-card-title>
+                <hr> <br>
+                <mat-card-subtitle>Email Adress: </mat-card-subtitle>
+                <mat-card-title>{{user.email}}</mat-card-title>
+                <hr> <br>
+                <mat-card-subtitle>Age: </mat-card-subtitle>
+                <mat-card-title>{{user.age}} years old</mat-card-title>
+                <hr> <br>
+                <mat-card-subtitle>Join Date: </mat-card-subtitle>
+                <mat-card-title>{{user.joinDate|date}}</mat-card-title>
+                <hr> <br>
+            </div>
+        </div>
+    </mat-card>
+</div>

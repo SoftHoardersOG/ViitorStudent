@@ -24,10 +24,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
+import { UserPageComponent } from './user-page/user-page.component';
 
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent, UserPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -42,6 +44,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSnackBarModule,
     MatToolbarModule,
     MatDialogModule,
+    MatCardModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
