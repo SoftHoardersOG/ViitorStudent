@@ -27,6 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CardComponent } from './components/university-card/university-card.component';
 import {MatCardModule} from '@angular/material/card';
 import { UniversitiesComponent } from './components/universities/universities.component';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent],
@@ -44,7 +46,8 @@ import { UniversitiesComponent } from './components/universities/universities.co
     MatSnackBarModule,
     MatToolbarModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
