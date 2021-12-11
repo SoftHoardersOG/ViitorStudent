@@ -24,5 +24,9 @@ insert into Job([name]) values ('Agent de vanzari');
 insert into Job([name]) values ('Psiholog');
 insert into Job([name]) values ('Psihiatru');
 insert into Job([name]) values ('Antreprenor');
+insert into Job([name]) values ('Judecator');
+insert into Job([name]) values ('Avocat');
+insert into Job([name]) values ('Procuror');
+insert into Job([name]) values ('Notar');
 
 Select * from Job;

@@ -178,4 +178,26 @@ values (19,16);
 insert into UniversityJob([job_id],[university_id])
 values (20,55);
 
+/*judecator, avocat, procuror, notar*/
+insert into UniversityJob([job_id],[university_id])
+values (22,5);
+insert into UniversityJob([job_id],[university_id])
+values (22,29);
+
+insert into UniversityJob([job_id],[university_id])
+values (23,5);
+insert into UniversityJob([job_id],[university_id])
+values (23,29);
+
+insert into UniversityJob([job_id],[university_id])
+values (24,5);
+insert into UniversityJob([job_id],[university_id])
+values (24,29);
+
+insert into UniversityJob([job_id],[university_id])
+values (25,5);
+insert into UniversityJob([job_id],[university_id])
+values (25,29);
+
+
 select * from UniversityJob;
