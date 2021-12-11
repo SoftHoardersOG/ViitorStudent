@@ -17,20 +17,16 @@ export class LandingComponent implements OnInit {
   currentUser?: UserModel = undefined;
 
   ngOnInit(): void {
-    this.getCurrentUser();
+    this._loginService.loginEvent$.subscribe((data : UserModel)=>{
+      this.currentUser = data;
+    })
   }
 
   openRegistration(){
-    const loginRef = this._dialog.open(RegistrationFormComponent, {width:"40%", height:"50%"});
+    const registartionRef = this._dialog.open(RegistrationFormComponent, {width:"40%" ,minWidth:"400px", height:"50%", minHeight:"600px"});
   }
   openSurvey(){
-    const loginRef = this._dialog.open(SurveyComponent, {width:"40%", height:"30%"});
+    const surveyRef = this._dialog.open(SurveyComponent, {width:"40%", height:"fit-content",});
   }
-  getCurrentUser():void{
-    this._loginService.getCurrentUser().subscribe(
-      (data: UserModel) => (this.currentUser = data),
-      (err) => (this.currentUser = undefined)
-    );
 
-  }
 }
