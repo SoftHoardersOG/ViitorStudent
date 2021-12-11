@@ -10,7 +10,7 @@ lastName VARCHAR(255) NOT NULL,
 firstName VARCHAR(255) NOT NULL,
 age INT,
 [role] VARCHAR(255) NOT NULL,
-join_date TIMESTAMP,
+join_date DATETIME,
 );
 
 /* --------- RECOMANDATION FORM --------- */
@@ -185,7 +185,7 @@ FOREIGN KEY([university_id]) REFERENCES [University]([university_id])
 CREATE TABLE Meeting(
 meeting_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 [name] VARCHAR(255) NOT NULL,
-[date] TIMESTAMP NOT NULL,
+[date] DATETIMP NOT NULL,
 [description] VARCHAR(255),
 [price] INT NOT NULL,
 [link] VARCHAR(255) NOT NULL,

@@ -1,0 +1,25 @@
+<div style="height: 100%;">
+    <mat-card>
+        <div class="container">
+            <img mat-card-image src="http://localhost:29949/api/images/?universityId={{data.id}}" style="object-fit: cover; height:300px; opacity:0.3; background-color:black">
+            <div class="centered" fxLayout="column" fxFlexAlign="center center">
+                <hr color="white" width="100%">
+                <mat-card-title style="font-size: 30px; padding-top: 2%; padding-bottom: 2%;">{{data.name}}</mat-card-title>
+                <hr color="white" width="100%">
+                <mat-card-subtitle>{{data.group}}</mat-card-subtitle>
+            </div>
+        </div>
+        <div>
+            <mat-tab-group mat-align-tabs="center">
+                <mat-tab label="Descriere"><p style="text-indent: 7%;"  style="padding: 2%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque iaculis elementum erat vel porttitor. Nullam eleifend metus in arcu interdum sagittis. Aliquam consequat nulla a tincidunt tincidunt. Donec lectus ante, rutrum nec porta et, euismod eget metus. Ut mollis varius arcu, at mattis magna hendrerit vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin placerat a massa id luctus. Nullam ac aliquam erat. Etiam vel nisi venenatis, consectetur nulla eu, venenatis ex. Nam id justo pellentesque, volutpat lorem et, auctor arcu. Curabitur porta, diam non elementum faucibus, enim dolor hendrerit leo, ac porta urna enim et risus. Phasellus ultricies vulputate ante, vel sollicitudin massa cursus malesuada. Ut vitae felis at neque pulvinar blandit ac a elit. Vivamus laoreet congue eros, vitae hendrerit magna pellentesque eu. Integer fermentum libero nec fermentum eleifend. Sed eget viverra mi. Suspendisse cursus elit sed dui varius laoreet. Curabitur hendrerit tortor neque, nec elementum nisl interdum efficitur. Etiam sollicitudin, nisl vel suscipit tincidunt, sapien massa imperdiet turpis, nec pretium nibh velit fringilla nunc. Vestibulum eleifend in quam vestibulum tincidunt. Curabitur blandit tellus tincidunt, consectetur sem id, porta lacus. Sed sit amet aliquet est. Nulla facilisi. Duis vulputate massa augue, non maximus justo luctus ut. Nam dapibus posuere lorem, at egestas massa sodales id. Maecenas efficitur faucibus est eu porta. Praesent imperdiet eros nulla, tincidunt ultricies sem sollicitudin id.</p></mat-tab>
+                <mat-tab label="Proceduri de inscriere"><p style="text-indent: 7%;"  style="padding: 2%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque iaculis elementum erat vel porttitor. Nullam eleifend metus in arcu interdum sagittis. Aliquam consequat nulla a tincidunt tincidunt. Donec lectus ante, rutrum nec porta et, euismod eget metus. Ut mollis varius arcu, at mattis magna hendrerit vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin placerat a massa id luctus.</p></mat-tab>
+                <mat-tab label="Comentarii"> <span *ngFor="let comment of comments"><app-comment [comment]=comment></app-comment></span></mat-tab>
+            </mat-tab-group>
+            <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+                <div fxLayout="row" fxLayoutAlign="center center"><mat-icon>alternate_email</mat-icon><span class="aligned-with-icon">{{data.email}}</span></div>
+                <div fxLayout="row" fxLayoutAlign="center center"><mat-icon> phone</mat-icon><span class="aligned-with-icon">{{data.phoneNumber}}</span></div>
+                <div fxLayout="row" fxLayoutAlign="center center"><mat-icon>domain</mat-icon><span class="aligned-with-icon">{{data.address}}</span></div>
+            </div>
+        </div>
+    </mat-card>
+</div>

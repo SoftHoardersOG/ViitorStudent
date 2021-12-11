@@ -17,31 +17,25 @@ import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
 import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDialogModule } from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UserPageComponent } from './user-page/user-page.component';
 import { CardComponent } from './components/university-card/university-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { UniversitiesComponent } from './components/universities/universities.component';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { SurveyComponent } from './components/survey/survey.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatMenuModule} from '@angular/material/menu';
+import { UniversityBigCardComponent } from './components/university-big-card/university-big-card.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    RegistrationFormComponent,
-    LoginFormComponent,
-    NavbarComponent,
-    LandingComponent,
-    AboutUsComponent,
-    CardComponent,
-    UniversitiesComponent,
-    SurveyComponent,
-  ],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent, CommentComponent,SurveyComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -62,8 +56,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatRadioModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatChipsModule
-  ],
+    MatChipsModule,
+    MatTabsModule
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

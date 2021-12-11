@@ -32,9 +32,9 @@ namespace backend.Services
             return await _dbCon.University.CountAsync();
         }
 
-        public async Task<List<UniversityCard>> GetUniversityFrom(int fromCount)
+        public async Task<List<UniversityCard>> GetUniversityFrom(int fromCount,int universityAmount)
         {
-            var result = await _dbCon.Set<University>().Skip(fromCount).Take(6).ToListAsync();
+            var result = await _dbCon.Set<University>().Skip(fromCount).Take(universityAmount).ToListAsync();
             return _mapper.Map<List<UniversityCard>>(result);
         }
 

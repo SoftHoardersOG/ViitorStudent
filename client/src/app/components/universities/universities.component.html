@@ -1,5 +1,5 @@
 <div fxLayout.gt-xs="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
-    <university-card  style="padding: 30px;" *ngFor="let university of arr"name="{{university.name}}" group="{{university.group}}" shortDescription="{{university.shortDescription}}"
-email="{{university.email}}" phoneNumber="{{university.phoneNumber}}" address="{{university.address}}" imageUrl="http://localhost:29949/api/images/?universityId={{university.id}}">
+    <university-card style="padding: 30px;" *ngFor="let university of arr"name="{{university.name}}" group="{{university.group}}" shortDescription="{{university.shortDescription}}"
+email="{{university.email}}" phoneNumber="{{university.phoneNumber}}" address="{{university.address}}" imageUrl="http://localhost:29949/api/images/?universityId={{university.id}}" (click)="showBig(university)">
     </university-card>
 </div>
