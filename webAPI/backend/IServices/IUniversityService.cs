@@ -11,6 +11,6 @@ namespace backend.IServices
     {
         Task<List<UniversityCard>> GetAllCards();
         Task<int> GetUniversityCount();
-        Task<List<UniversityCard>> GetUniversityFrom(int fromCount);
+        Task<List<UniversityCard>> GetUniversityFrom(int fromCount, int universityAmount);
     }
 }

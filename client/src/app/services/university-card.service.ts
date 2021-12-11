@@ -15,8 +15,8 @@ export class UniversityCardService {
   public getAllUniversities(): Observable<Array<UniversityCardModel>>{
     return this.http.get<Array<UniversityCardModel>>(`${apiURL}/UniversityCard`);
   }
-  public lazyGetUniversities(loadFrom:number): Observable<Array<UniversityCardModel>>{
-    return this.http.get<Array<UniversityCardModel>>(`${apiURL}/UniversityCard/lazy/?loadFrom=${loadFrom}`);
+  public lazyGetUniversities(loadFrom:number,universityAmount:number): Observable<Array<UniversityCardModel>>{
+    return this.http.get<Array<UniversityCardModel>>(`${apiURL}/UniversityCard/lazy/?loadFrom=${loadFrom}&universityAmount=${universityAmount}`);
   }
   public getUniversityCount():Observable<number>{
     return this.http.get<number>(`${apiURL}/UniversityCard/count`);

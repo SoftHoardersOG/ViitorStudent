@@ -61,11 +61,11 @@ namespace backend.Controllers
         }
         [HttpGet]
         [Route("lazy")]
-        public ActionResult GetFrom([FromQuery] int loadFrom)
+        public ActionResult GetFrom([FromQuery] int loadFrom,[FromQuery]int universityAmount)
         {
             try
             {
-                return Ok(_universityService.GetUniversityFrom(loadFrom).Result);
+                return Ok(_universityService.GetUniversityFrom(loadFrom,universityAmount).Result);
             }
             catch (Exception e)
             {

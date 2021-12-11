@@ -14,10 +14,14 @@ export class UniversitiesComponent implements OnInit {
   arrMaxLength: number = 0;
   scrollY: number = 0;
   shouldRequest: boolean = true;
+  windowWidth: number =0;
+  universityAmount:number=0;
 
   ngOnInit(): void {
     document.addEventListener('scroll', () => {
       this.scrollY = window.scrollY;
+      this.windowWidth = window.innerWidth;
+      this.universityAmount = this.windowWidth/200;
       let maxHeight = Math.max(
         document.body.scrollHeight,
         document.body.offsetHeight,
@@ -29,24 +33,29 @@ export class UniversitiesComponent implements OnInit {
         this.scrollY,
         maxHeight,
         maxHeight - this.scrollY,
-        this.shouldRequest
+        this.shouldRequest,
+        this.universityAmount
       );
       if (
-        maxHeight - this.scrollY < 1200 &&
+        maxHeight - this.scrollY < 1400 &&
         this.shouldRequest &&
         this.arr.length < this.arrMaxLength
       ) {
         this.shouldRequest = false;
         this.universityCardService
-          .lazyGetUniversities(this.arr.length)
+          .lazyGetUniversities(this.arr.length,Math.ceil(this.universityAmount))
           .subscribe((data) => {
             this.arr = this.arr.concat(data);
             this.shouldRequest = true;
           });
       }
     });
+    this.windowWidth = window.innerWidth;
+    this.universityAmount = this.windowWidth/200;
+    console.log(this.windowWidth,this.windowWidth/200);
+    
     this.universityCardService
-      .lazyGetUniversities(this.arr.length)
+      .lazyGetUniversities(this.arr.length,Math.ceil(this.universityAmount))
       .subscribe((data) => {
         this.arr = this.arr.concat(data);
       });
