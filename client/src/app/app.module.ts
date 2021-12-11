@@ -29,9 +29,11 @@ import { CardComponent } from './components/university-card/university-card.comp
 import {MatCardModule} from '@angular/material/card';
 import { UniversitiesComponent } from './components/universities/universities.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { UniversityBigCardComponent } from './components/university-big-card/university-big-card.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,7 +49,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     MatDialogModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

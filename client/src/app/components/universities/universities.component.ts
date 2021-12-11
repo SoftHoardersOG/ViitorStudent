@@ -1,5 +1,7 @@
+import { UniversityBigCardComponent } from '../university-big-card/university-big-card.component';
+import { UniversityCardModel } from './../../models/university-card.model';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
-import { UniversityCardModel } from 'src/app/models/university-card.model';
 import { UniversityCardService } from 'src/app/services/university-card.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { UniversityCardService } from 'src/app/services/university-card.service'
   styleUrls: ['./universities.component.css'],
 })
 export class UniversitiesComponent implements OnInit {
-  constructor(private universityCardService: UniversityCardService) {}
+  constructor(private universityCardService: UniversityCardService, public _dialog: MatDialog) {}
 
   arr: Array<UniversityCardModel> = new Array<UniversityCardModel>();
   arrMaxLength: number = 0;
@@ -61,6 +63,11 @@ export class UniversitiesComponent implements OnInit {
       });
     this.universityCardService.getUniversityCount().subscribe((data) => {
       this.arrMaxLength = data;
+    });
+  }
+  showBig(university: UniversityCardModel){
+    let dialogref=this._dialog.open(UniversityBigCardComponent, {
+      data: university, width:"65%", height:"fit-content"
     });
   }
 }
