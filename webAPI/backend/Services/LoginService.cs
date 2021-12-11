@@ -50,8 +50,7 @@ namespace backend.Services
                 new Claim("role",GetRole(loginModel).Result)
             };
 
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-                _config["Jwt:Issuer"],
+            var token = new JwtSecurityToken("","",
                 claims,
                 expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: credentials);

@@ -22,7 +22,7 @@ namespace backend.Controllers
         {
             try
             {
-                if (_registerService.Register(registrationModel))
+                if (_registerService.Register(registrationModel).Result)
                 {
                     return Ok(registrationModel);
                 }
@@ -41,6 +41,8 @@ namespace backend.Controllers
         [HttpGet]
         public ActionResult VerifyUsername(string username)
         {
+
+
             try
             {
                 return Ok(_registerService.CanRegister(username).Result);

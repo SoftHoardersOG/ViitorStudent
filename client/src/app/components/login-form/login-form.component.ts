@@ -12,6 +12,7 @@ export class LoginFormComponent implements OnInit {
   constructor(private loginService: LoginService, private _snackBar:MatSnackBar) {}
   loginModel: LoginModel = new LoginModel();
   ngOnInit(): void {}
+  hide:boolean=true;
 
   loginUser(): void {
     this.loginService.loginUser(this.loginModel).subscribe((data) => {

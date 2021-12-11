@@ -1,0 +1,24 @@
+<mat-card class="example-card" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" style="height: 700px; width: 400px;" fxLayout="column" fxLayoutAlign="space-around center">
+  <mat-card-header fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-title >{{ name }}</mat-card-title>
+    <div fxLayoutAlign="center">
+      <mat-card-subtitle>{{ group }}</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="{{imageUrl}}"
+    alt="Photo of a University"
+  />
+  <mat-card-content>
+    <p>
+      {{ shortDescription }}
+    </p>
+  </mat-card-content>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div fxLayout="row" fxLayoutAlign="center center"><mat-icon>alternate_email</mat-icon><span class="aligned-with-icon">{{email}}</span></div>
+    <div fxLayout="row" fxLayoutAlign="center center"><mat-icon> phone</mat-icon><span class="aligned-with-icon">{{phoneNumber}}</span></div>
+    <div fxLayout="row" fxLayoutAlign="center center"><mat-icon>domain</mat-icon><span class="aligned-with-icon">{{address}}</span></div>
+
+  </div>
+</mat-card>

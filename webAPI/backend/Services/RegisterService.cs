@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -24,15 +25,15 @@ namespace backend.Services
 
         public async Task<bool> CanRegister(string username)
         {
-            var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == username);
+         var user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == username);
             return user == null;
         }
 
-        public bool Register(RegistrationModel registrationModel)
+        public async Task<bool> Register(RegistrationModel registrationModel)
         {
             if (!CanRegister(registrationModel.Username).Result) return false;
-            _dbCon.Add(_mapper.Map<User>(registrationModel));
-            _dbCon.SaveChanges();
+            await _dbCon.AddAsync(_mapper.Map<User>(registrationModel));
+            await _dbCon.SaveChangesAsync();
             return true;
         }
     }
