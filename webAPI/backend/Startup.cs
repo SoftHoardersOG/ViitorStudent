@@ -55,9 +55,7 @@ namespace backend
             }));
 
             services.AddHttpClient();
-            // services.AddControllers().AddJsonOptions(x =>
-            //     x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
-
+            
             IMapper mapper = new MapperConfiguration(a => { a.AddProfile(new MyMapper()); }).CreateMapper();
             services.AddSingleton(mapper);
             services.AddScoped<IRegisterService,RegisterService>();
