@@ -9,7 +9,6 @@ import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './components/main/main.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
@@ -28,10 +27,13 @@ import { CardComponent } from './components/university-card/university-card.comp
 import {MatCardModule} from '@angular/material/card';
 import { UniversitiesComponent } from './components/universities/universities.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { SurveyComponent } from './components/survey/survey.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, SurveyComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,12 +49,14 @@ import {MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     MatDialogModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule,
+    MatRadioModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [MainComponent],
-  
+
 })
 export class AppModule {}

@@ -1,0 +1,14 @@
+<div *ngFor="let question of questions">
+  <mat-card *ngIf="index==question.id">
+    <mat-card-title>{{question.id}}. {{question.title}}</mat-card-title>
+    <mat-radio-group [(ngModel)]="value" [required]=true>
+      <div *ngFor="let option of question.options">
+        <mat-radio-button value="{{option.id}}">{{option.text}}</mat-radio-button>
+      </div>
+    </mat-radio-group>
+    <button *ngIf="index>1 else disabled" mat-stroked-button color="accent" mat-flat-button (click)="goBack()">Previous Question</button>
+    <ng-template #disabled><button mat-stroked-button color="accent" mat-flat-button disabled>Previous Question</button></ng-template>
+    <button *ngIf="index<questions.length" mat-stroked-button color="accent" mat-flat-button (click)="goForward()">Next Question</button>
+    <button *ngIf="index==questions.length" mat-stroked-button color="accent" mat-flat-button (click)="onSubmit()" mat-dialog-close>Submit</button>
+  </mat-card>
+</div>

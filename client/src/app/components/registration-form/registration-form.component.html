@@ -1,4 +1,4 @@
-<div style="width: 100%" fxLayoutAlign="center center" class="">
+<div style="width: 100%" fxLayout="column" fxLayoutAlign="center center" class="">
   <form
     style="padding: 30px"
     class="example-form mat-app-background mat-elevation-z8"
@@ -124,6 +124,6 @@
     </mat-form-field>
 
     <!-- ADD -->
-    <button [disabled]="!registrationForm.valid" (click)="addUser()" mat-button color="accent">Submit</button>
+    <button [disabled]="!registrationForm.valid" (click)="addUser()" mat-button color="accent" >Submit</button>
   </form>
 </div>

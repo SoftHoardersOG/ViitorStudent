@@ -3,13 +3,20 @@ img{
   height: 46%;
   -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    object-fit: cover;
 }
 h1{
   text-align: center;
   font-size: 150px;
   color :white;
   font-family: Georgina;
-  margin-bottom: 9.2%;
+  margin-bottom: 4%;
+}
+button{
+  width:300px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: 300%;
 }
 @media only screen and (max-width: 600px){
   img{

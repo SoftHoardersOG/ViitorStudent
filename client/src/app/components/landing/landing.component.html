@@ -1,2 +1,6 @@
 <img src="assets/background.jpg" alt="background image">
 <h1>Viitor student</h1>
+<div fxLayout="column" fxLayoutAlign="center center" >
+  <button *ngIf="currentUser==null" mat-flat-button (click)="openRegistration()">Get Started</button>
+  <button *ngIf="currentUser!=null" mat-flat-button (click)="openSurvey()">Take a survey</button>
+</div>
