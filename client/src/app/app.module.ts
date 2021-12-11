@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -24,10 +24,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import { CardComponent } from './components/university-card/university-card.component';
+import {MatCardModule} from '@angular/material/card';
+import { UniversitiesComponent } from './components/universities/universities.component';
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -42,10 +44,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSnackBarModule,
     MatToolbarModule,
     MatDialogModule,
+    MatCardModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [MainComponent],
+  
 })
 export class AppModule {}

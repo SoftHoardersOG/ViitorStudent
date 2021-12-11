@@ -17,8 +17,10 @@ namespace backend.Mappers
                 .ForMember(u => u.join_date, o => o.MapFrom(um => DateTime.Now))
                 ;
             CreateMap<User, RegistrationModel>();
+            CreateMap<University, UniversityCard>().ForMember(uc=>uc.Id, u => u.MapFrom(o=>o.university_id));
             CreateMap<User, UserModel>().ForMember(um => um.UserId, O => O.MapFrom(U => U.user_id))
                 .ForMember(um => um.JoinDate, O => O.MapFrom(U => U.join_date)).ReverseMap();
+
         }
     }
 }

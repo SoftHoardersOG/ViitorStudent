@@ -1,4 +1,5 @@
 using System;
+using System.Security.AccessControl;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,7 @@ using backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Text.Json.Serialization;
 
 namespace backend
 {
@@ -53,11 +55,15 @@ namespace backend
             }));
 
             services.AddHttpClient();
+            // services.AddControllers().AddJsonOptions(x =>
+            //     x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
             IMapper mapper = new MapperConfiguration(a => { a.AddProfile(new MyMapper()); }).CreateMapper();
             services.AddSingleton(mapper);
             services.AddScoped<IRegisterService,RegisterService>();
+            services.AddScoped<IImageService,ImageService>();
             services.AddScoped<ILoginService,LoginService>();
+            services.AddScoped<IUniversityService,UniversityService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
