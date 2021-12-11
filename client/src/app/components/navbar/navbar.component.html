@@ -1,5 +1,5 @@
-<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
-  <button mat-button>About us</button>
+<mat-toolbar fxLayout="row"  fxLayoutAlign="space-between center">
+  <button mat-button (click)="openAboutUs()" >About us</button>
   <button *ngIf="currentUser != null; else login" mat-button [matMenuTriggerFor]="userMenu">
     Hello, {{ currentUser?.firstName }} {{ currentUser?.lastName }}
     <mat-icon>arrow_drop_down</mat-icon>

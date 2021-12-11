@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login.service';
+import { AboutUsComponent } from '../about-us/about-us.component';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
 @Component({
@@ -30,6 +31,14 @@ export class NavbarComponent implements OnInit {
     const loginRef = this._dialog.open(LoginFormComponent);
     loginRef.afterClosed().subscribe(res =>{
       this.getCurrentUser();
+    })
+  }
+
+  openAboutUs(){
+    const loginRef = this._dialog.open(AboutUsComponent, {width:"90%", height:"90%"});
+    loginRef.afterClosed().subscribe(res =>{
+      console.log("About us closed!");
+
     })
   }
 
