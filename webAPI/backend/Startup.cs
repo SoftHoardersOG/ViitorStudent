@@ -58,6 +58,7 @@ namespace backend
             services.AddSingleton(mapper);
             services.AddScoped<IRegisterService,RegisterService>();
             services.AddScoped<ILoginService,LoginService>();
+            services.AddScoped<ISurveyService, SurveyService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

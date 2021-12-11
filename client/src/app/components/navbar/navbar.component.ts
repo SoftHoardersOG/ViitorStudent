@@ -31,6 +31,11 @@ export class NavbarComponent implements OnInit {
     loginRef.afterClosed().subscribe(res =>{
       this.getCurrentUser();
     })
-
   }
+
+  logout():void{
+    this._loginService.logout();
+    this.getCurrentUser();
+  }
+
 }

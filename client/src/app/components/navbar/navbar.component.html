@@ -1,8 +1,14 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
   <button mat-button>About us</button>
-  <button *ngIf="currentUser!=null;else login" mat-button>Hello, {{currentUser?.firstName}} {{currentUser?.lastName}}</button>
+  <button *ngIf="currentUser != null; else login" mat-button [matMenuTriggerFor]="userMenu">
+    Hello, {{ currentUser?.firstName }} {{ currentUser?.lastName }}
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
   <ng-template #login>
     <button mat-button (click)="openLogin()">Login</button>
-    </ng-template>
-
+  </ng-template>
+  <mat-menu #userMenu="matMenu">
+    <button  mat-menu-item>Profile</button>
+    <button mat-menu-item (click)="logout()" class="mat-warn mat-toolbar">Logout</button>
+  </mat-menu>
 </mat-toolbar>

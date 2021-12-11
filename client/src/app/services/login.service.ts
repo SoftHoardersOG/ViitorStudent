@@ -16,4 +16,7 @@ export class LoginService {
   public getCurrentUser(): Observable<UserModel>{
     return this.http.get<UserModel>(`${apiURL}/Login`);
   }
+  public logout():void{
+    localStorage.clear();
+  }
 }
