@@ -10,5 +10,8 @@
             <app-favorite [rating]="comment.rating" ></app-favorite>
         </div>
     </div> 
-    <div style="background-color:rgb(49, 49, 49); border-radius:15px; padding: 1%; "><p style="font-size: 18px"> > {{comment.content}}</p></div>
+    <div style="background-color:rgb(49, 49, 49); border-radius:15px; padding: 1%; ">
+        <h1>{{comment.title}}</h1>
+        <p style="font-size: 16px"> > {{comment.content}}</p>
+    </div>
 </div>
