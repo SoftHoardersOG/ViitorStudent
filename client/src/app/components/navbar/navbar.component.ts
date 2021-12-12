@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UserPageComponent } from '../user-page/user-page.component';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login.service';
@@ -22,9 +23,9 @@ export class NavbarComponent implements OnInit {
   getCurrentUser():void{
     this._loginService.getCurrentUser().subscribe(
       (data: UserModel) => (this.currentUser = data),
-      (err) => (this.currentUser = undefined)
+      (err) => (this.currentUser = undefined),
+      ()=>{this._loginService.emit(this.currentUser)}
     );
-
   }
 
   openLogin(): void {
@@ -45,6 +46,10 @@ export class NavbarComponent implements OnInit {
   logout():void{
     this._loginService.logout();
     this.getCurrentUser();
+  }
+
+  openProfile(){
+    const profileRed = this._dialog.open(UserPageComponent, {width:"fitContent", height:"fitContent", data: this.currentUser})
   }
 
 }

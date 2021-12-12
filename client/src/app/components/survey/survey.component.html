@@ -1,0 +1,217 @@
+<div >
+  <form fxLayout="column" fxLayoutAlign="center center">
+    <div style="width: 100%">
+      <button
+        mat-icon-button
+        mat-dialog-close
+        style="margin: 10px; float: right"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <h2>Sondaj pentru recomandarea facultatilor!</h2>
+    <!-- CITY -->
+    <p>Selecteaza-ti orasele favorite!</p>
+    <mat-form-field
+      class="example-chip-list"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Click pentru a alege orase din lista</mat-label>
+      <mat-chip-list #chipListCity aria-label="Select city">
+        <mat-chip
+          *ngFor="let cityid of survey.cityIds"
+          (removed)="removeCity(cityid)"
+        >
+          {{ getCityName(cityid) }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          (focusout)="this.cityControl.setValue('', { emitEvent: true })"
+          placeholder="Poti alege mai multe orase"
+          #cityInput
+          #trigger="matAutocompleteTrigger"
+          [formControl]="cityControl"
+          [matAutocomplete]="autoCity"
+          [matChipInputFor]="chipListCity"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addCity($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #autoCity="matAutocomplete"
+        (optionSelected)="selectedCity($event)"
+      >
+        <mat-option *ngFor="let city of cityOptions" [value]="city.id">
+          {{ city.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- /CLUB -->
+    <p>Ce activitati extrascolare desfasori?</p>
+    <mat-form-field
+      class="example-chip-list"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Click pentru a alege activitati din lista</mat-label>
+      <mat-chip-list #chipListClub aria-label="Poti alege mai multe activitati">
+        <mat-chip
+          *ngFor="let clubid of survey.clubIds"
+          (removed)="removeClub(clubid)"
+        >
+          {{ getClubName(clubid) }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          (focusout)="clubInput.value = ''"
+          placeholder="Add club"
+          #clubInput
+          #trigger="matAutocompleteTrigger"
+          [formControl]="clubControl"
+          [matAutocomplete]="autoClub"
+          [matChipInputFor]="chipListClub"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addClub($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #autoClub="matAutocomplete"
+        (optionSelected)="selectedClub($event)"
+      >
+        <mat-option *ngFor="let club of clubOptions" [value]="club.id">
+          {{ club.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- JOB -->
+    <p>Ce cariera ai vrea sa urmezi?</p>
+    <mat-form-field
+      class="example-chip-list"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Click pentru a alege meserii din lista</mat-label>
+      <mat-chip-list #chipListJob aria-label="Select job">
+        <mat-chip
+          *ngFor="let jobid of survey.jobIds"
+          (removed)="removeJob(jobid)"
+        >
+          {{ getJobName(jobid) }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          (focusout)="jobInput.value = ''"
+          placeholder="Poti alege mai multe meserii"
+          #jobInput
+          #trigger="matAutocompleteTrigger"
+          [formControl]="jobControl"
+          [matAutocomplete]="autoJob"
+          [matChipInputFor]="chipListJob"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addJob($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #autoJob="matAutocomplete"
+        (optionSelected)="selectedJob($event)"
+      >
+        <mat-option *ngFor="let job of jobOptions" [value]="job.id">
+          {{ job.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- SUBJECT -->
+    <p>Ce materii scolare te pasioneaza?</p>
+    <mat-form-field
+      class="example-chip-list"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Click pentru a alege materii din lista</mat-label>
+      <mat-chip-list #chipListSubject aria-label="Select subject">
+        <mat-chip
+          *ngFor="let subjectid of survey.subjectIds"
+          (removed)="removeSubject(subjectid)"
+        >
+          {{ getSubjectName(subjectid) }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          (focusout)="subjectInput.value = ''"
+          placeholder="Poti alege mai multe materii"
+          #subjectInput
+          #trigger="matAutocompleteTrigger"
+          [formControl]="subjectControl"
+          [matAutocomplete]="autoSubject"
+          [matChipInputFor]="chipListSubject"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addSubject($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #autoSubject="matAutocomplete"
+        (optionSelected)="selectedSubject($event)"
+      >
+        <mat-option *ngFor="let subject of subjectOptions" [value]="subject.id">
+          {{ subject.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- INTEREST -->
+    <p>Care sunt pasiunile tale?</p>
+    <mat-form-field
+      class="example-chip-list"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Click pentru a alege pasiuni din lista</mat-label>
+      <mat-chip-list #chipListInterest aria-label="Select interest">
+        <mat-chip
+          *ngFor="let interestid of survey.interestIds"
+          (removed)="removeInterest(interestid)"
+        >
+          {{ getInterestName(interestid) }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          (focusout)="interestInput.value = ''"
+          placeholder="Poti alege mai multe pasiuni"
+          #interestInput
+          #trigger="matAutocompleteTrigger"
+          [formControl]="interestControl"
+          [matAutocomplete]="autoInterest"
+          [matChipInputFor]="chipListInterest"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addInterest($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #autoInterest="matAutocomplete"
+        (optionSelected)="selectedInterest($event)"
+      >
+        <mat-option
+          *ngFor="let interest of interestOptions"
+          [value]="interest.id"
+        >
+          {{ interest.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button  mat-dialog-close="true" (click)="submitForm()" mat-button color="accent">Submit</button>
+  </form>
+</div>

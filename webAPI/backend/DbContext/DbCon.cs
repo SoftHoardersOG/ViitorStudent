@@ -12,13 +12,11 @@ namespace backend.DbContext
     {
         public DbCon()
         {
-
         }
 
         public DbCon(DbContextOptions<DbCon> options)
             : base(options)
         {
-            
         }
 
         public virtual DbSet<City> City { get; set; }
@@ -29,7 +27,6 @@ namespace backend.DbContext
         public virtual DbSet<Reviews> Reviews { get; set; }
         public virtual DbSet<Subject> Subject { get; set; }
         public virtual DbSet<University> University { get; set; }
-        public virtual DbSet<UniversityCity> UniversityCity { get; set; }
         public virtual DbSet<UniversityClub> UniversityClub { get; set; }
         public virtual DbSet<UniversityInterest> UniversityInterest { get; set; }
         public virtual DbSet<UniversityJob> UniversityJob { get; set; }
@@ -42,6 +39,15 @@ namespace backend.DbContext
         public virtual DbSet<UserMetings> UserMetings { get; set; }
         public virtual DbSet<UserSubject> UserSubject { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=\"moth5002.go.ro, 3000\";Initial Catalog=ViitorStudent;Persist Security Info=True;User ID=softHoarders;Password=muzeu123");
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -49,7 +55,7 @@ namespace backend.DbContext
             modelBuilder.Entity<City>(entity =>
             {
                 entity.HasKey(e => e.city_id)
-                    .HasName("PK__City__031491A85C72A3CE");
+                    .HasName("PK__City__031491A8EB36E726");
 
                 entity.Property(e => e.name)
                     .IsRequired()
@@ -60,7 +66,7 @@ namespace backend.DbContext
             modelBuilder.Entity<Club>(entity =>
             {
                 entity.HasKey(e => e.club_id)
-                    .HasName("PK__Club__BCAD3DD980C7A6CE");
+                    .HasName("PK__Club__BCAD3DD91F4511E0");
 
                 entity.Property(e => e.name)
                     .IsRequired()
@@ -71,7 +77,7 @@ namespace backend.DbContext
             modelBuilder.Entity<Interest>(entity =>
             {
                 entity.HasKey(e => e.interest_id)
-                    .HasName("PK__Interest__0F5A1FAD2CBE4E3D");
+                    .HasName("PK__Interest__0F5A1FAD78863152");
 
                 entity.Property(e => e.name)
                     .IsRequired()
@@ -82,7 +88,7 @@ namespace backend.DbContext
             modelBuilder.Entity<Job>(entity =>
             {
                 entity.HasKey(e => e.job_id)
-                    .HasName("PK__Job__6E32B6A53AD194A8");
+                    .HasName("PK__Job__6E32B6A5316C1E10");
 
                 entity.Property(e => e.name)
                     .IsRequired()
@@ -93,7 +99,7 @@ namespace backend.DbContext
             modelBuilder.Entity<Meeting>(entity =>
             {
                 entity.HasKey(e => e.meeting_id)
-                    .HasName("PK__Meeting__C7B91CAB76309911");
+                    .HasName("PK__Meeting__C7B91CABF0790FA8");
 
                 entity.Property(e => e.date).HasColumnType("datetime");
 
@@ -121,7 +127,7 @@ namespace backend.DbContext
             modelBuilder.Entity<Reviews>(entity =>
             {
                 entity.HasKey(e => e.review_id)
-                    .HasName("PK__Reviews__60883D909262BA68");
+                    .HasName("PK__Reviews__60883D9096EF607F");
 
                 entity.Property(e => e.body)
                     .HasMaxLength(400)
@@ -148,7 +154,7 @@ namespace backend.DbContext
             modelBuilder.Entity<Subject>(entity =>
             {
                 entity.HasKey(e => e.subject_id)
-                    .HasName("PK__Subject__5004F660298AA02A");
+                    .HasName("PK__Subject__5004F6605C3D0AE4");
 
                 entity.Property(e => e.name)
                     .IsRequired()
@@ -159,7 +165,7 @@ namespace backend.DbContext
             modelBuilder.Entity<University>(entity =>
             {
                 entity.HasKey(e => e.university_id)
-                    .HasName("PK__Universi__F24BB720A693EEF6");
+                    .HasName("PK__Universi__F24BB7209BFEB0C4");
 
                 entity.Property(e => e.address)
                     .IsRequired()
@@ -170,17 +176,13 @@ namespace backend.DbContext
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.examInfo)
-                    .HasMaxLength(4000)
-                    .IsUnicode(false);
+                entity.Property(e => e.examInfo).IsUnicode(false);
 
                 entity.Property(e => e.group)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.longDescription)
-                    .HasMaxLength(4000)
-                    .IsUnicode(false);
+                entity.Property(e => e.longDescription).IsUnicode(false);
 
                 entity.Property(e => e.name)
                     .IsRequired()
@@ -193,7 +195,6 @@ namespace backend.DbContext
 
                 entity.Property(e => e.shortDescription)
                     .IsRequired()
-                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.city)
@@ -203,28 +204,10 @@ namespace backend.DbContext
                     .HasConstraintName("FK__Universit__city___4316F928");
             });
 
-            modelBuilder.Entity<UniversityCity>(entity =>
-            {
-                entity.HasKey(e => e.universityCity_id)
-                    .HasName("PK__Universi__2421FFBD769F9ED8");
-
-                entity.HasOne(d => d.city)
-                    .WithMany(p => p.UniversityCity)
-                    .HasForeignKey(d => d.city_id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Universit__city___59063A47");
-
-                entity.HasOne(d => d.university)
-                    .WithMany(p => p.UniversityCity)
-                    .HasForeignKey(d => d.university_id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Universit__unive__59FA5E80");
-            });
-
             modelBuilder.Entity<UniversityClub>(entity =>
             {
                 entity.HasKey(e => e.universityClub_id)
-                    .HasName("PK__Universi__F21CC33779696F40");
+                    .HasName("PK__Universi__F21CC337D58BE7E0");
 
                 entity.HasOne(d => d.club)
                     .WithMany(p => p.UniversityClub)
@@ -242,7 +225,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UniversityInterest>(entity =>
             {
                 entity.HasKey(e => e.universityInterest_id)
-                    .HasName("PK__Universi__84B253F74987A45E");
+                    .HasName("PK__Universi__84B253F7703BF50A");
 
                 entity.HasOne(d => d.interest)
                     .WithMany(p => p.UniversityInterest)
@@ -260,7 +243,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UniversityJob>(entity =>
             {
                 entity.HasKey(e => e.universityJob_id)
-                    .HasName("PK__Universi__BD8AD008D9D92F67");
+                    .HasName("PK__Universi__BD8AD008CABDD318");
 
                 entity.HasOne(d => d.job)
                     .WithMany(p => p.UniversityJob)
@@ -278,7 +261,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UniversitySubject>(entity =>
             {
                 entity.HasKey(e => e.universitySubject_id)
-                    .HasName("PK__Universi__E144E1FBDF558DE4");
+                    .HasName("PK__Universi__E144E1FB79C98024");
 
                 entity.HasOne(d => d.subject)
                     .WithMany(p => p.UniversitySubject)
@@ -296,7 +279,7 @@ namespace backend.DbContext
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.user_id)
-                    .HasName("PK__User__B9BE370F003D7635");
+                    .HasName("PK__User__B9BE370FD1CD567B");
 
                 entity.Property(e => e.email)
                     .IsRequired()
@@ -334,7 +317,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UserCity>(entity =>
             {
                 entity.HasKey(e => e.userCity_id)
-                    .HasName("PK__UserCity__94C7757D10BD5698");
+                    .HasName("PK__UserCity__94C7757DCD396E7E");
 
                 entity.HasOne(d => d.city)
                     .WithMany(p => p.UserCity)
@@ -352,7 +335,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UserClub>(entity =>
             {
                 entity.HasKey(e => e.userClub_id)
-                    .HasName("PK__UserClub__F1147A3688217021");
+                    .HasName("PK__UserClub__F1147A3609F76416");
 
                 entity.HasOne(d => d.club)
                     .WithMany(p => p.UserClub)
@@ -370,7 +353,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UserInterest>(entity =>
             {
                 entity.HasKey(e => e.userInterest_id)
-                    .HasName("PK__UserInte__EA8ECA38A5C76DBA");
+                    .HasName("PK__UserInte__EA8ECA38C708AB89");
 
                 entity.HasOne(d => d.interest)
                     .WithMany(p => p.UserInterest)
@@ -388,7 +371,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UserJob>(entity =>
             {
                 entity.HasKey(e => e.userJob_id)
-                    .HasName("PK__UserJob__E5C23F97981CF668");
+                    .HasName("PK__UserJob__E5C23F97A5EB9C48");
 
                 entity.HasOne(d => d.job)
                     .WithMany(p => p.UserJob)
@@ -406,7 +389,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UserMetings>(entity =>
             {
                 entity.HasKey(e => e.userMeeting_id)
-                    .HasName("PK__UserMeti__035568EFC6E8BA85");
+                    .HasName("PK__UserMeti__035568EF9AD811B6");
 
                 entity.HasOne(d => d.meeting)
                     .WithMany(p => p.UserMetings)
@@ -424,7 +407,7 @@ namespace backend.DbContext
             modelBuilder.Entity<UserSubject>(entity =>
             {
                 entity.HasKey(e => e.userSubject_id)
-                    .HasName("PK__UserSubj__F7574CF86546F83C");
+                    .HasName("PK__UserSubj__F7574CF8DFE08618");
 
                 entity.HasOne(d => d.subject)
                     .WithMany(p => p.UserSubject)

@@ -1,7 +1,7 @@
 export class UserModel
 {
  userId? :number;
- username? :string
+ username? :string;
  email? :string
  lastName? :string
  firstName?:string

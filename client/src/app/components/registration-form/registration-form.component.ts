@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RegistrationModel } from 'src/app/models/registration.model';
 import { RegistrationService } from 'src/app/services/registration.service';
+import { LoginFormComponent } from '../login-form/login-form.component';
 
 @Component({
   selector: 'registration-form',
@@ -11,7 +13,7 @@ import { RegistrationService } from 'src/app/services/registration.service';
 export class RegistrationFormComponent implements OnInit {
   @ViewChild('registrationForm') registartionForm: any ;
 
-  constructor(private registrationService: RegistrationService, private _matSnackBar : MatSnackBar) {}
+  constructor(private registrationService: RegistrationService, private _matSnackBar : MatSnackBar, public _dialog: MatDialog,) {}
 
 
   registrationModel: RegistrationModel = new RegistrationModel();
@@ -23,7 +25,7 @@ export class RegistrationFormComponent implements OnInit {
   addUser(): void {
     this.registrationService
       .registerUser(this.registrationModel)
-      .subscribe((data: RegistrationModel) => console.log(data), err => {this._matSnackBar.open(err.error,"",{duration:2000,panelClass:['mat-toolbar','mat-warn']})});
+      .subscribe((data: RegistrationModel) => this._dialog.open(LoginFormComponent), err => {this._matSnackBar.open(err.error,"",{duration:2000,panelClass:['mat-toolbar','mat-warn']})});
      // this.registrationModel = new RegistrationModel();
      // this.registartionForm.form.markAsPristine();
 
