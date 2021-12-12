@@ -9,5 +9,7 @@ namespace backend.Models
     {
         public SurveyModel surveyModel { get; set; }
         public SortFilterModel sortFilterModel { get; set; }
+        public int startingPoint { get; set; }
+        public int maxNumber { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace backend.IServices
 {
     public interface ISortFilterService
     {
-        Task<List<University>> Filter(SortFilterModel model, SurveyModel surveyModel = null);
+        Task<List<University>> Filter(SortFilterModel model, int startingPoint, int maxNumber, SurveyModel surveyModel = null);
         Task<SurveyModel> GenerateSurvey(int userId);
     }
 }

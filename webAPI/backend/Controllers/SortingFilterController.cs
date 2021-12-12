@@ -55,9 +55,9 @@ namespace backend.Controllers
                                                    && !surveyModel.SubjectIds.Any()
                 )
                 {
-                    return Ok(_sortFilterService.Filter(sortModel).Result);
+                    return Ok(_sortFilterService.Filter(sortModel,sortingAndSurvey.startingPoint,sortingAndSurvey.maxNumber).Result);
                 }
-                return Ok(_sortFilterService.Filter(sortModel,surveyModel).Result);
+                return Ok(_sortFilterService.Filter(sortModel, sortingAndSurvey.startingPoint, sortingAndSurvey.maxNumber,surveyModel).Result);
             }
             catch (Exception e)
             {
