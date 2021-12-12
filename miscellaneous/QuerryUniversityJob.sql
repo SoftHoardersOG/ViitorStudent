@@ -13,6 +13,9 @@ values (1,33);
 insert into UniversityJob([job_id],[university_id])
 values (1,28);
 
+insert into UniversityJob([job_id],[university_id])
+values (1,59);
+
 /*ofiter politie*/
 insert into UniversityJob([job_id],[university_id])
 values (2,34);
@@ -69,6 +72,11 @@ values (4,34);
 insert into UniversityJob([job_id],[university_id])
 values (4,39);
 
+/* Medic veterinar*/
+
+insert into UniversityJob([job_id],[university_id])
+values (7,59);
+
 /*invatator*/
 insert into UniversityJob([job_id],[university_id])
 values (8,16);
@@ -111,6 +119,14 @@ values (13,41);
 
 insert into UniversityJob([job_id],[university_id])
 values (14,22);
+
+insert into UniversityJob([job_id],[university_id])
+values (14,60);
+
+/*Arhitect*/
+
+insert into UniversityJob([job_id],[university_id])
+values (15,58);
 
 /* inginer */
 insert into UniversityJob([job_id],[university_id])

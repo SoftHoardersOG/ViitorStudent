@@ -235,10 +235,15 @@ values (11,42);
 /*Educatie plastica*/
 insert into UniversitySubject([subject_id], [university_id])
 values (12,22);
-
+insert into UniversitySubject([subject_id], [university_id])
+values (12,58);
+insert into UniversitySubject([subject_id], [university_id])
+values (12,60);
 /*Muzica*/
 insert into UniversitySubject([subject_id], [university_id])
 values (13,22);
+insert into UniversitySubject([subject_id], [university_id])
+values (13,61);
 
 /*Informatica*/
 insert into UniversitySubject([subject_id], [university_id])

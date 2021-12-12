@@ -12,6 +12,8 @@ namespace backend.IServices
         Task<List<UniversityCard>> GetAllCards();
         Task<int> GetUniversityCount();
         Task<List<UniversityCard>> GetUniversityFrom(int fromCount, int universityAmount);
+        Task<ExtendedUniversityModel> GetExtendedUniversity(int id);
+        Task<ReviewModel> PostReview(ReviewModel review);
     }
 
 }

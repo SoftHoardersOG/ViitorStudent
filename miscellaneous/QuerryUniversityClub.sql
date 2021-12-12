@@ -54,7 +54,7 @@ values (1,55);
 insert into UniversityClub([club_id], [university_id])
 values (1,56);
 
-insert into UniversityCity([city_id], [university_id]) 
+insert into UniversityClub([club_id], [university_id]) 
 values (1,57);
 
 
@@ -211,6 +211,9 @@ values (6,20);
 insert into UniversityClub([club_id], [university_id])
 values (6,22);
 
+insert into UniversityClub([club_id], [university_id])
+values (6,61);
+
 /*Instrument muzical*/
 
 insert into UniversityClub([club_id], [university_id])
@@ -222,6 +225,10 @@ values (7,20);
 insert into UniversityClub([club_id], [university_id])
 values (7,22);
 
+insert into UniversityClub([club_id], [university_id])
+values (7,61);
+
+
 /*Cor*/
 
 insert into UniversityClub([club_id], [university_id])
@@ -232,6 +239,10 @@ values (8,20);
 
 insert into UniversityClub([club_id], [university_id])
 values (8,22);
+
+insert into UniversityClub([club_id], [university_id])
+values (8,61);
+
 
 /*Voluntariat*/
 
@@ -262,4 +273,6 @@ values (9,30);
 insert into UniversityClub([club_id], [university_id])
 values (9,49);
 
+insert into UniversityClub([club_id], [university_id])
+values (9,59);
 SELECT * FROM UniversityClub;

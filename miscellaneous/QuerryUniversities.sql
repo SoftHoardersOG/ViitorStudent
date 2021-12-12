@@ -966,4 +966,231 @@ shortDescription = 'Se pot inscrie candidatii care intrunesc conditiile si crite
 longDescription = 'Astfel, in cadrul Facultatii de Politie, pentru specializarea ,,Ordine si siguranta publica", domeniul de licenta ,,Stiinte militare, informatii si ordine publica" sunt 300 de locuri pentru specialitatea politie, 70 de locuri pentru specialitatea politie de frontiera si 60 de locuri pentru specialitatea jandarmi.  Pentru aceeasi specializare, forma de invatamant cu frecventa redusa, disponibila agentilor si subofiterilor din institutiile Ministerului Afacerilor Interne, sunt prevazute 50 de locuri.'
 WHERE university_id = 37;
 
+UPDATE University
+SET
+shortDescription = 'Facultatea Transporturi are o tradiţie de peste 50 de ani.
+
+In 1948 s-a înființat Facultatea de Căi Ferate. Un an mai târziu se înfiinţează Institutul de Căi Ferate, iar în 1953, în cadrul Facultăţii de Electronică funcţionează Catedra şi Specializarea Centralizări şi Semnalizări Feroviare (ulterior Telecomenzi Feroviare).',
+longDescription ='In anul 1959, Institutul de Cai Ferate se uneste cu Institutul Politehnic Bucuresti si se infiinteaza Facultatea Transporturi. Cu incepere din anul 1972, specializarea Telecomenzi Feroviare este transferata la Facultatea Transporturi, care asigura astfel patru specializari: Autovehicule rutiere (infiintata in 1959), Material rulant de cale ferata, Ingineria transporturilor (infiintata in 1948 sub denumirea Circulatie si exploatare) si Telecomenzi feroviare.
+In prezent, facultatea are cinci specializari la cursuri de zi: Autovehicule rutiere si Ingineria sistemelor de propulsie pentru autovehicule - in domeniul Ingineria Autovehiculelor, Vehicule pentru transportul feroviar - in domeniul Inginerie mecanica, Ingineria transporturilor si a traficului - in domeniul Ingineria transporturilor si Telecomenzi si electronica in transporturi - in domeniul Inginerie electronica si telecomunicatii.
+Facultatea pregateste absolventi in 11 specializari (Cercetare si dezvoltare in ingineria autovehiculelor, Sistem integrat om-autovehicul-mediu, Sisteme si tehnologii avansate in domeniul autovehiculelor, Ingineria mediului si managementul calitatii in domeniul feroviar, Logistica transporturilor, Management in transporturi, Transport si trafic urban, Sisteme inteligente pentru transporturi, Sisteme telematice pentru transporturi, Fenomene de interactiune vehicul-cale de rulare, Vehicule feroviare de mare viteza) la cursuri de master (cu durata de doi ani).
+In facultate este organizata si pregatirea prin doctorat, sub conducerea a sase profesori.
+Absolventii Facultatii Transporturi au competente in conceptia, constructia si exploatarea vehiculelor rutiere si feroviare, trafic si siguranta circulatiei, managementul transporturilor, legislatie in transporturi, electronica si telecomenzi in transporturi, sisteme inteligente de transport etc. Echilibrul intre pregatirea fundamentala tehnica generala si de specialitate a creat posibilitati de afirmare a profesionalismului absolventilor facultatii si in alte sfere ale activitatii economico-sociale: administratie publica, comert, asigurari, expertize tehnice etc. Calitatea pregatirii profesionale in concordanta cu cerintele pietei fortei de munca a facut ca marea majoritate a absolventilor facultatii sa isi gaseasca in scurt timp loc de munca.
+Numarul studentilor din facultate este de circa 2300.
+Cadrele didactice, studentii si personalul tehnic auxiliar desfasoara activitati de cercetare stiintifica in cadrul departamentelor si al centrelor de cercetare de pe langa aceste departamente, concretizate in contracte de cercetare, articole si comunicari. Facultatea organizeaza, incepand din 1982, sesiunea stiintifica ,,Economicitatea, securitatea si fiabilitatea autovehiculelor", devenita o manifestare europeana de referinta in randul specialistilor din acest domeniu si a organizat numeroase alte manifestari stiintifice de prestigiu.',
+email = 'transport@upb.ro',
+phoneNumber = '+4021-402 95 68',
+address = 'Splaiul Independentei 313, cod postal 060042, sector 6, Bucuresti, Corp JA 003'
+WHERE university_id = 48;
+
+UPDATE University
+SET
+shortDescription = 'Facultatea de Chimie Aplicata si Stiinta Materialelor iti are radacinile inca din anul 1867, in fosta Scoala de Poduri, Sosele si Mine, cand s-au introdus cursuri de chimie, predate de catre profesorul Emanuel Bacaloglu. De altfel, facultatea este amplasata in ansamblul de cladiri situat in strada Polizu, a carui constructie a inceput in 1886 (Corpul A); aici, academicianul Alfons Saligny a condus laboratoarele de Chimie intre 1886 si 1903, fiind urmat de Grigore Pfeiffer. In perioada dintre cele doua razboaie mondiale au fost angajati tinerii Emilian Bratu, Costin Nenitescu, Serban Solacolu, care ulterior au devenit profesori renumiti, academicieni, fondatori de scoala.',
+longDescription = 'In anul 1938 apare ,,Legea pentru exercitarea profesiei de inginer si infiintarea Colegiului Inginerilor" ; in acest context, in cadrul Scolii Politehnice ia nastere Facultatea de Chimie Industriala; primul sau decan a fost profesorul Negoita Danaila. Este de remarcat ca aceasta denumire a fost pastrata pana astazi.
+In mod firesc, facultatea s-a dezvoltat, aparand noi specializari, laboratoare si centre de cercetare ce corespund dezvoltarii stiintifice si tehnologice. Actualmente, facultatea formeaza ingineri (patru ani) in specializari foarte diverse din industria chimica. Cursurilor de ingineri li se adauga cursuri de masterat, scoli academice postuniversitare, doctorat etc.
+La fiecare doi ani facultatea coordoneaza ,,Conferinta Nationala de Chimie si Inginerie Chimica" si este o prezenta activa in publicatiile stiintifice nationale sau straine.'
+WHERE university_id = 51;
+
+UPDATE University
+SET
+shortDescription = 'Facultatea de Inginerie Medicala (FIM) a Universitatii POLITEHNICA din Bucuresti (UPB) a fost infiintata in anul 2010, prin integrarea Departamentului de Bioinginerie si Biotehnologie (DBB) si a Departamentului de Educatie Fizica si Sport - Kinetoterapie, care au functionat anterior ca structuri independente ale universitatii.',
+longDescription = 'FIM este o structura integratoare, cu rol sinergetic in promovarea la nivelul universitatii a domeniilor Bioingineriei si Biotehnologiilor medicale, prin educatie si cercetare, activitati coordonate de cadre didactice de la mai multe facultati ale universitatii, in acord cu strategia UPB fata de rolul si importanta domeniului in plan economic si social, pentru sanatatea populatiei si asigurarea calitatii vietii. Pregatirea studentilor este interdisciplinara, orientata spre dezvoltarea si promovarea echipamentelor, dispozitivelor, materialelor si tehnologiilor biomedicale moderne.
+Facultatea de Inginerie Medicala, continuatorul DBB, se distinge prin nivelul inalt de interdisciplinaritate al corpului profesoral si al programelor de instruire oferite studentilor, cu componente de stiinte tehnice, informatica, stiinte exacte, stiintele vietii.
+FIM organizeaza activitati didactice si de instruire la nivel de Licenta (4 ani, 240 puncte credit) si Masterat (2 ani, 120 puncte credit) in domeniile Stiinte Ingineresti Aplicate si Ingineria Materialelor. Toate programele de studii au fost supuse evaluarii ARACIS, in conformitate cu prevederile MECTS pentru acreditarea programelor de studii universitare si au primit calificativul INCREDERE (cel mai inalt in ierarhizarea ARACIS).
+De asemenea, FIM sprijina din punct de vedere stiintific si organizatoric forme de calificare postuniversitara (scoli de vara, cursuri de scurta durata, componente ale unor programe post-doc, diferite proiecte educationale).
+Facultatea de Inginerie Medicala asigura absolventilor competente teoretice si practice in domeniul ingineriei medicale, prin formarea de abilitati pentru asistenta tehnica si informatica, pentru cercetare inginereasca, inovare si proiectare - in domeniul echipamentelor medicale, al dispozitivelor si in cel al materialelor cu proprietati specifice aplicatiilor medicale, pentru creare de software dedicat aplicatiilor din domeniul medical.
+In parteneriat cu Universitatea de Medicina ,,Carol Davila" din Bucuresti este oferita studentilor pregatirea medicala necesara. Colaborarile multiple (proiecte de cercetare-dezvoltare incluzand proiecte de diploma si disertatie ale studentilor, asigurarea programelor de practica studenteasca, organizare de stagii internship etc.) in parteneriat cu firme de echipamente si dispozitive medicale (Gadagroup Romania, Siemens, GE Romania, Philips, Drager Medical, TechnoPlus s.a.), cu institute nationale de cercetare dezvoltare din Bucuresti (ICPE-CA, IMT, INCDMTM) cu mediul clinic si cu mediul de administrare si management in domeniul medical asigura sanse pentru cea mai buna insertie a absolventilor in mediul profesional national si international. In fiecare an, stagii educationale sau de cercetare in domeniul ingineriei medicale se desfasoara cu succes in programul cadru Erasmus, prin schimburi organizate cu alte universitati Europene.'
+WHERE university_id = 54;
+
+UPDATE University
+SET
+shortDescription = 'Facultatea de Politie organizeaza 2 programe de studii universitare de licenta. domeniul fundamental de ierarhizare (DFI) ,,Stiinte sociale", ramura de stiinte (RSI) "Stiinte juridice", domeniul de licenta (DL) "Drept", specializarea "Drept", cu durata de 4 ani (240 de credite transferabile), invatamant cu frecventa (pentru formarea initiala a ofiterilor de politie, politie de frontiera, jandarmi) si invatamant la distanta (pentru formarea personalului M.A.I.).',
+longDescription = 'Scoala Doctorala Drept s-a înfiintat în conformitate cu prevederile urmatoarelor acte normative: Legea nr.1/2011 a educatiei nationale, Legea nr. 288/2004 privind organizarea studiilor universitare, Legea nr. 87/2006 privind asigurarea calitatii educatiei, Legea nr. 319/2003 privind Statutul personalului de cercetare-dezvoltare, Hotarârea Guvernului României nr. 681/2011 privind aprobarea Codului studiilor universitare de doctorat, Ordinul ministrului învatamântului nr.3128/1995 cu Anexa 1 – Lista IOD si a ramurilor de stiinta în care acestea au dreptul sa organizeze doctoratul (pozitia nr.38) si Precizarile Miniterului Educatiei Nationale privind organizarea si desfasurarea doctoratului înregistrate sub nr.43163 din 27.10.1997, precum si Regulamentul institutional de organizare si desfasurare a programelor de studii universitare de doctorat al IOSUD.'
+WHERE university_id = 34;
+
+UPDATE University
+SET
+longDescription = 'Facultatea de Politie organizeaza 2 programe de studii universitare de licenta. domeniul fundamental de ierarhizare (DFI) ,,Stiinte sociale", ramura de stiinte (RSI) "Stiinte juridice", domeniul de licenta (DL) "Drept", specializarea "Drept", cu durata de 4 ani (240 de credite transferabile), invatamant cu frecventa (pentru formarea initiala a ofiterilor de politie, politie de frontiera, jandarmi) si invatamant la distanta (pentru formarea personalului M.A.I.).'
+WHERE university_id = 38;
+
+/*
+UPDATE University
+SET
+longDescription = '-'
+WHERE university_id = ;
+*/
+
+UPDATE University
+SET
+longDescription = 'Facultatea de Energetica este una dintre scolile de elita ale invatamantului superior romanesc, prima institutie academica de invatamant energetic din tara, infiintata in anul 1950, recunoscuta pentru profesionalism, standarde academice si stiintifice de inalta calitate.
+
+Facultatea de Energetica ofera programe de studii de licenta, masterat si doctorat, compatibile cu sistemul european de credite transferabile si conditii de studiu la nivel mondial pentru peste 2000 de studenti anual.
+
+Studentii facultatii de Energetica au posibilitatea de a se pregati in toate domeniile Ingineriei Energetice, dobandind competente in domeniul proiectarii, constructiei, exploatarii, mentenantei, conducerii si planificarii activitatii din centralele electrice clasice (termoelectrice, hidroelectrice, nuclearoelectrice), din centralele bazate pe surse regenerabile de energie (fotoelectrice, eoliene, microhidrocentrale, ferme marine), respectiv din sistemele de transport si distributie a energiei. De asemenea, in ultimii ani, programele de studii au fost orientate catre dezvoltarea de comptetente in protectia mediului si digitalizarea sectorului energetic.'
+WHERE university_id = 44;
+
+UPDATE University
+SET
+longDescription = 'Facultatea de Automatica si Calculatoare pregateste ingineri specialisti in domeniile Ingineria Sistemelor si Calculatoare si Tehnologia Informatiei, pe baza unor programe de studii moderne, in care aspectele teoretice sunt imbinate cu excelenta practica. Studentii facultatii beneficiaza de un mediu de invatamant competitiv care stimuleaza creativitatea, initiativa stiintifica si tehnica, dezvoltarea personala si implicarea activa a viitorilor specialisti in construirea societatii cunoasterii.
+
+Facultatea de Automatica si Calculatoare pregateste ingineri in urmatoarele domenii: structura si arhitectura sistemelor de calcul, sisteme bazate pe microprocesoare, limbaje de programare, sisteme de aplicatii software, inteligenta artificiala si sisteme expert (pentru studentii de la specializarea Calculatoare) si ingineria sistemelor de control, sisteme evoluate de conducere, roboti si sisteme automatizate de productie, bioinginerie si sisteme inteligente, automatizari industriale (pentru studentii de la specializarea de Automatica si Informatica Industriala).'
+WHERE university_id = 45;
+
+UPDATE University
+SET
+longDescription = 'PREZENTARE GENERALA FACULTATE
+
+Invatamantul romanesc in domeniul Electronicii si Telecomunicatiilor a inceput in anul 1920, in cadrul Scolii Politehnice din Bucuresti. Aceste preocupari au fost dezvoltate ulterior, devenind o specializare aparte, numita Telefonie-Telegrafie, in cadrul Facultatii Electromecanice (1924) si care mai tarziu va evolua ca sectie distincta, sub numele de Electrocomunicatii (1929). Facultatea de Electronica a fost infiintata in anul 1953 ca ramura a Facultatii de Electromecanica, incluzand specializarile Electronica, Radiocomunicatii si Telefonie-Telegrafie.
+
+Facultatea de Electronica, Telecomunicatii si Tehnologia Informatiei ocupa un spatiu impresionant, de circa 20000 m2, in campusul Leu. Campusul ofera conditii foarte bune. Facultatea de Electronica, Telecomunicatii si Tehnologia Informatiei ocupa doua cladiri, continand laboratoare si sali de curs, in centrul campusului. Alte cladiri importante sunt Centrul Studentesc cu aproximativ 500 de camere confortabile, sala de sport, centrul medical, trei restaurante etc. Facultatea de Electronica, Telecomunicatii si Tehnologia Informatiei ofera studentilor si absolventilor sai un ansamblu armonios de avantaje educationale.'
+WHERE university_id = 46;
+
+
+UPDATE University
+SET
+longDescription = 'Industria alimentara, protectia mediului si agricultura sau mecatronica si robotica sunt sectoare fundamentale ale tuturor economiilor nationale, ele reprezentand garantia existentei independente a natiunilor.
+
+Programul UE de redresare, care include mecanismul de redresare si de rezilienta, isi propune sa transforme Uniunea intr-o economie moderna, competitiva si eficienta avand ca prioritati Pactul ecologic european - pentru crearea unei Europe neutre din punct de vedere climatic pana in 2050 si O Europa pregatita pentru era digitala - Tehnologii de ultima generatie la dispozitia cetatenilor, Astfel, trebuie sa le oferim tinerilor care patrund destul de greu pe piata fortei de munca, toate sansele de a-si dezvolta intregul potential pentru a contribui la modelarea viitorului si pentru a beneficia pe deplin de tranzitia verde si digital. In acest context, necesarul de specialisti din domeniile sus-amintite este din ce in ce mai ridicat.
+
+Facultatea de Ingineria Sistemelor Biotehnice vine in intampinarea acestei cereri cu specializari nu doar moderne, ci si necesare, care fac parte din patru sectoare fundamentale ale economiei: inginerie mecanica, ingineria mediului, ingineria produselor alimentare, mecatronica si robotica.'
+WHERE university_id = 47;
+
+
+UPDATE University
+SET
+longDescription = 'Contributia romaneasca la nasterea aviatiei este deosebita, avand recunoastere internationala. Nume ca: Traian Vuia (primul zbor complet cu un mijloc propriu, 1906), Henri Coanda (primul motor cu reactie folosit pentru propulsie in aviatie, 1920) si Aurel Vlaicu (inventator cu mari performante, 1910) sunt binecunoscute in aviatia mondiala.
+
+Sectia de Aviatie, existenta la Politehnica din Bucuresti in perioada 1933-1971, devine, in anul 1971, Facultatea de Inginerie Aerospatiala, avand 180-200 locuri la admitere in fiecare an.'
+WHERE university_id = 49;
+
+
+UPDATE University
+SET
+longDescription = 'Traditiile invatamantului de stiinta si ingineria materialelor sunt strans legate de aparitia si dezvoltarea metalurgiei pe teritoriul tarii noastre, la inceput in forma arhaica (epoca fierului, epoca bronzului) si apoi in structura clasica, moderna (dupa anul 1729).
+
+Primele diplome de ingineri in metalurgie au fost acordate in deceniul al III-lea al secolului XX, ca urmare a infiintarii sectiei de Mine si Metalurgie, in cadrul Scolii Politehnice din Bucuresti, iar prima diploma de doctor inginer in Metalurgie a fost acordata unui inginer american, conducator de teza fiind academicianul Traian Negrescu.
+
+Cerintele moderne ale pregatirii ingineresti in domeniul producerii de noi materiale cu caracteristici deosebite au impus transformarea, atat in fond, cat si in forma, a facultatii de Metalurgie in cea de Stiinta si Ingineria Materialelor, in anul 1990. Astfel s-a introdus in programa universitara studiul si proiectarea materialelor avansate, ca: materiale compozite, materiale polifazice, sticle metalice, pulberi metalice si ceramice, materiale cu efect de memorie a formei, materiale ultrausoare, materiale magnetice, materiale antifrictiune, materiale superplastice etc.'
+WHERE university_id = 50;
+
+
+UPDATE University
+SET
+longDescription = 'website not working'
+WHERE university_id = 52;
+
+
+UPDATE University
+SET
+longDescription = 'Facultatea de Stiinte Aplicate a fost infiintata in anul 2005, la propunerea Departamentului de Matematica si a Departamentului de Fizica.
+Facultatea pregateste ingineri in specializarile: (1) Matematica si Informatica Aplicata in Inginerie si (2) Inginerie Fizica (Ciclul I - Licenta), prin cursuri de zi, 4 ani, 240 de credite europene transferabile. Se ofera si programe de: Masterat (Ciclul II) in: Sisteme Dinamice, Geometrie si Optimizari; Modele de Decizie, Risc si Prognoza; Educatie si management scolar; Teoria codarii si stocarii informatiei; Modelare, simulare si calcul numeric; Monitorizarea si controlul sistemelor complexe, Logica matematica si aplicatii; Tehnologii Optice; Fizica materiei micro si nanostructurate; Masurarea si utilizarea radiatiilor ionizante; Fotonica si materiale avansate; si de Doctorat (Ciclul III) in Stiinte Exacte - Matematica, Fizica; in Stiinte Ingineresti: - Optoelectronica, Fizica Tehnica.
+Se asigura o pregatire multidisciplinara, fundamentala (bazata pe Matematica, Fizica, Informatica), inginereasca generala si manageriala, teoretica si experimentala, psiho-pedagogica si socio-umana, precum si cunoasterea unei limbi straine.'
+WHERE university_id = 53;
+
+
+UPDATE University
+SET
+longDescription = 'Facultatea de Antreprenoriat, Ingineria si Managementul Afacerilor (FAIMA) asigura un invatamant performant, o pregatire inginereasca si manageriala bazata pe creativitate si practica, oferind studentilor sanse reale in competitia de pe piata fortei de munca, inclusiv in zona antreprenoriala.
+
+Facultatea se adreseaza tinerilor interesati sa-si construiasca o cariera in mediul afacerilor (in domeniul industrial si in alte domenii), precum si celor ce doresc sa-si dezvolte propriul business.
+
+Cadrele didactice, specialisti recunoscuti pe plan national si international, realizeaza transferul de cunostinte intr-o maniera interactiva, permanent conectata la practica, asigurand toate conditiile necesare pentru stimularea gandirii, a experientei si a aptitudinilor proprii.
+
+FAIMA ofera studentilor o baza materiala consistenta, dispunand de o biblioteca moderna, dotata cu carti din domeniile de interes aferente specializarii ,,Ingineria si Managementul Afacerilor", cum ar fi: management, marketing, managementul resurselor umane, dezvoltare organizationala, finante, management de proiect, comunicare in afaceri, management strategic, precum si alte monografii, carti si tratate de mare valoare, specifice domeniilor conexe. Este de mentionat faptul ca majoritatea cartilor apartin unor edituri de mare prestigiu, cum ar fi Prentice Hall, McGraw Hill, Pearson, Teora, Niculescu si altele.
+
+De asemenea, FAIMA dispune de laboratoare didactice moderne in care se practica simulari software utile in dezvoltarea abilitatilor manageriale ale studentilor, ca de exemplu: The Marketing Game, Primavera, Adonis, Adoscore, MS Project etc.
+
+Bazandu-se pe o relatie biunivoca intre mediul universitar si lumea afacerilor, facultatea are relatii stranse cu mari concerne internationale (HP, Siemens, Porsche, Hornbach, Salesianner etc.), absolventii putand indeplini cu success criteriile de selectie impuse de rigorile grilei de angajare.
+
+Dupa cei 4 ani de studii de licenta, masteratele oferite de FAIMA asigura o compatibilitate foarte buna cu cerintele de calitate impuse de standardele europene in privinta invatamantului universitar, in contextul unei evolutii continue a pietei muncii din Uniunea Europeana.'
+WHERE university_id = 55;
+
+
+UPDATE University
+SET
+longDescription = 'Facultatea de Inginerie Mecanica a luat fiinta in anul 1921 ca parte a facultatii de Electromecanica, de unde s-a desprins in anii 50. De-a lungul anilor, profesori de mare renume au contribuit la procesul de formare a studentilor facultatii, printre acestia numarandu-se presedinti si membri ai Academiei Romane, personalitati stiintifice de prestigiu atat pe plan national, cat si international.
+In prezent Facultatea de Inginerie Mecanica si Mecatronica scolarizeaza studenti in cinci domenii, si anume: Inginerie Mecanica, Mecatronica si Robotica, Inginerie si Management Industrial, Stiinte Ingineresti Aplicate si Inginerie Industriala. La randul sau, domeniul Inginerie Mecanica se subdivide, incepand din anul al treilea de studii, in urmatoarele specializari: Sisteme si Echipamente Termice; Masini si Sisteme Hidraulice si Pneumatice; Echipamente pentru Procese Industriale; Mecanica Fina si Nanotehnologii.'
+WHERE university_id = 56;
+
+insert into University([name],[group], [shortDescription], [longDescription], [examInfo], [email], [phoneNumber],[address],[city_id]) values (
+'Facultatea de Arhitectura', 
+'UAUIM', 
+'Prin programul de studii cu durata de 6 ani Facultatea de Arhitectura este continuatoarea directa a invatamantului universitar de arhitectura romanesc initiat in 1892.',
+'Configuratia actuala a procesului de formare a viitorilor arhitecti este rezultatul sintezei dintre traditia istoricei Scoli de Arhitectura bucurestene si modernitatea asumata in prezent, in consonanta cu invatamantul de arhitectura contemporan din lume. In reformarea recenta a invatamantului de arhitectura din cadrul UAUIM un rol important l-a avut colaborarea constanta cu scolile europene de arhitectura dar si cu scoli din afara spatiului european, precum si cu organizatii profesionale nationale (OAR, UAR) si internationale (UIA-UNESCO, EAAE, ACE etc).', 
+'Pentru specializarea ARHITECTURA - Programe de studii cu predare in limbile romana si engleza
+Concursul de admitere va testa urmatoarele calitati si aptitudini specifice ale candidatilor:
+* vedere in spatiu,
+* creativitate,
+* imaginatie,
+* cultura generala de specialitate,
+* capacitatea de reprezentare grafica in plan si in spatiu.', 
+'secretarsefuauim@uauim.ro', 
+'021 307 7133', 
+'Universitatea de Arhitectura si Urbanism Ion Mincu, Strada Academiei 18-20, Bucuresti 010014', 
+1
+); 
+
+insert into University([name],[group], [shortDescription], [longDescription], [examInfo], [email], [phoneNumber],[address],[city_id]) values (
+'Facultatea de Medicina Veterinara', 
+'USAMV', 
+'Facultatea de Medicina Veterinara Bucuresti face parte din structura organizatorica a Universitatii de Stiinte Agronomice si Medicina Veterinara din Bucuresti www.usamv.ro',
+'Programul de studii Medicina Veterinara din domeniul fundamental Stiinte biologice si biomedicale, este un program de studii universitare integrate licenta si master, conform reglementarii sectoriale din cadrul Uniunii Europene. Se desfasoara pe o perioada de 6 ani - 360 de credite, sub forma invatamantului cu frecventa. Facultatea este acreditata national si recunoscuta la nivel european in urma evaluarii EAEVE. Este facultatea care ofera studentilor o pregatire solida si absolventilor o gama diversificata de optiuni in ceea ce priveste domeniile de profesare. Absolventii au competente generale in domeniul sanatatii animalelor, a sanatatii publice veterinare si a inspectiei si controlului veterinar de frontiera, in domeniul igienei produselor animaliere si de origine animala, in domeniul medicamentelor, al managementului integrat al cresterii si ingrijirii animalelor si in domeniul cercetarii stiintifice. Facultatea dispune de cadre didactice de o mare tinuta academica si de spatii de invatamant specifice, de un spital veterinar de animale mici cu dotari moderne, de o biobaza si de spatii de cazare pentru studenti. Cadrele didactice si studentii beneficiaza de mobilitati internationale, iar viata studenteasca este agregata in jurul a doua asociatii studentesti. Absolventii facultatii noastre profeseaza cu succes oriunde in lume!', 
+'media generala de admitere se calculeaza ca medie ponderata astfel: 50% nota
+de la proba scrisa / online (constand in intrebari tip grila, cu o singura varianta de raspuns, formulate din doua
+discipline: Biologie - clasa XI si Chimie organica (capitole) din clasa a X si a XI) si 50% media de la bacalaureat', 
+'info@fmvb.ro', 
+'021 318 0469', 
+'Universitatea de Stiinte Agronomice si Medicina Veterinara, Splaiul Independentei 105, Bucuresti 050097', 
+1
+); 
+
+insert into University([name],[group], [shortDescription], [longDescription], [examInfo], [email], [phoneNumber],[address],[city_id]) values (
+'Universitatea de Arta si Design Cluj-Napoca', 
+'UAD', 
+'Universitatea de Arta si Design din Cluj-Napoca (UAD) este o institutie publica de invatamant superior artistic. UAD este o persoana juridica de utilitate publica, avand caracter nonprofit. Subordonata Ministerului Educatiei Nationale si Cercetarii Stiintifice, UAD opereaza conform cadrului legal national specific domeniului educatiei si sectorului institutiilor publice si conform prevederilor din Carta universitatii. Ca urmare a exercitiului de clasificare din anul 2011, UAD a fost clasificata drept universitate de predare si creatie artistica.  ',
+'Competente
+
+Intre competentele esentiale obtinute de absolventii programului de studii se numara:
+- utilizarea creativa a tehnicilor si a tehnologiilor specifice domeniului modei
+- elaborarea, dezvoltarea si pregatirea colectiilor, crearea de schite/modele adaptate anumitor concepte de moda si stiluri de viata
+- gestionarea strategiilor de elaborare, implementare si promovare a produsului/ proiectului de design
+
+Oportunitati de cariera 
+
+Optiunile de cariera profesionala ale absolventilor programului de studii includ:
+- designer vestimentar - stilist
+- designer de accesorii vestimentare
+- expert designer pentru birourile de stil
+- designer de costume pentru teatru, film, televiziune
+- designer modelist vestimentar
+- cadru didactic in domeniul educatiei vizuale', 
+'Examenul de admitere la programul de studii Moda - Design vestimentar cuprinde proba practica de desen (proba eliminatorie), proba practica de specialitate (culoare) si interviu pe baza mapei de lucrari personale. Pentru mai multe informatii va invitam sa vizitati sectiunea Admitere.', 
+'radu.moraru@uad.ro', 
+'0264 595 021', 
+'Piata Unirii 31, Cluj-Napoca 400098', 
+12
+); 
+
+insert into University([name],[group], [shortDescription], [longDescription], [examInfo], [email], [phoneNumber],[address],[city_id]) values (
+'Universitatea Nationala de Muzica Bucuresti', 
+'UNMB', 
+'Universitatea Nationala de Muzica din Bucuresti a fost creata in iunie 1863 printr-un decret al Consiliului de Ministri, prezidat de domnitorul Alexandru Ioan Cuza. La acea vreme se dorea ca noua institutie sa includa doua scoli principale de arta: "Institutul de muzica vocala" si "Scoala de muzica instrumentala" cu filiale atat in Bucuresti cat si in Iasi. Astfel, la 6 octombrie 1864, Conservatorul de Muzica si Declamatiune si-a deschis portile pentru tinerii dornici sa studieze si sa devina faimosi in lumea muzicii.',
+'Sub conducerea compozitorului Alexandru Flechtenmacher, Conservatorul a devenit o institutie europeana specializata in educatia muzicala vocala si instrumentala, avand clase de vioara, solfegiu, cor bisericesc, canto, pian si armonie. Aici au fost pregatite mari personalitati ale istoriei muzicii romanesti si internationale, care apoi au condus destinele acestui faimos asezamant cultural.
+
+In timp, domeniile de studiu oferite de Conservator s-au imbogatit si diversificat. In 1900 a aparut prima clasa de muzica de camera, iar in 1905 prima clasa de compozitie, condusa de Alfonso Castaldi. In perioada interbelica a inceput studierea contrapunctului, orchestratiei, esteticii si istoriei muzicii. 17 iulie 1931 a fost momentul de rascruce in viata Conservatorului din Bucuresti, la acea data fiind indeplinite toate conditiile pentru a-l transforma intr-o institutie de invatamant superior sub numele de Academia Regala de Muzica si Arta Dramatica.', 
+'Probele de specialitate vor fi sustinute prin intermediul unor
+inregistrari video. Fiecare lucrare va fi filmata integral si continuu,
+fara intreruperi, dintr-un unghi care poate oferi o perspectiva clara
+asupra candidatului. Nu se accepta variante editate. Inregistrarile vor
+contine repertoriul specificat in Brosura de admitere si vor fi trimise
+unlisted pe YouTube. Link-ul va fi transmis odata cu dosarul de
+inscriere, pentru a fi accesat de catre membrii comisiei.
+Proba de Teoria muzicii, solfegiu si dictat se va desfasura online, pe
+platforma ZOOM.', 
+'secretariatfim@unmb.ro', 
+'021 314 6341', 
+'Strada Stirbei Voda 33, Bucuresti 010102', 
+1
+); 
+
 SELECT * FROM University;
