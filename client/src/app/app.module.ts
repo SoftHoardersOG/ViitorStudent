@@ -32,9 +32,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { UniversityBigCardComponent } from './components/university-big-card/university-big-card.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CommentComponent } from './components/comment/comment.component';
+import { MeetingComponent } from './components/meeting/meeting.component';
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent, CommentComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent, CommentComponent, MeetingComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
