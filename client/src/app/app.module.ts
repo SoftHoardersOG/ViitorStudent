@@ -1,3 +1,4 @@
+
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +17,6 @@ import { RegistrationFormComponent } from './components/registration-form/regist
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AuthInterceptor } from 'src/interceptor/auth.interceptor';
 import { LandingComponent } from './components/landing/landing.component';
@@ -32,9 +32,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import { UniversityBigCardComponent } from './components/university-big-card/university-big-card.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CommentComponent } from './components/comment/comment.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './components/app/app.component';
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent, CommentComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent, CommentComponent, NotfoundComponent, AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -51,12 +54,14 @@ import { CommentComponent } from './components/comment/comment.component';
     MatDialogModule,
     MatCardModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    AppRoutingModule
     ],
+
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
-  bootstrap: [MainComponent],
+  bootstrap: [AppComponent],
   
 })
 export class AppModule {}
