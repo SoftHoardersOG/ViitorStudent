@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using backend.IServices;
 using backend.Models;
@@ -10,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class SurveyController : ControllerBase
     {
@@ -20,16 +21,32 @@ namespace backend.Controllers
             _surveyService = surveyService;
         }
 
-        [HttpPost]
-    
-        public ActionResult PostUserSurvey(SurveyModel survey)
+        [Authorize]
+        [HttpDelete("Survey")]
+        public ActionResult DeleteSurvey()
         {
-        
-                _surveyService.AddSurveyToUser(survey);
-                return Ok(survey);
+            if (HttpContext.User.Identity is ClaimsIdentity identity)
+            {
+                var username = identity.FindFirst("username")?.Value;
+                if (username != " ")
+                {
+                    
+                    return Ok(_surveyService.DeleteSurvey(username).Result);
+                }
+
+                return Ok("none");
+            }
+
+            return Ok("none");
         }
 
-        [HttpGet("/cities")]
+        [HttpPost("Survey")]
+        public ActionResult PostUserSurvey(SurveyModel survey)
+        {
+            return Ok(_surveyService.AddSurveyToUser(survey).Result);
+        }
+
+        [HttpGet("cities")]
         public ActionResult GetCities()
         {
             try
@@ -43,7 +60,7 @@ namespace backend.Controllers
             }
         }      
         
-        [HttpGet("/clubs")]
+        [HttpGet("clubs")]
         public ActionResult GetClubs()
         {
             try
@@ -57,7 +74,7 @@ namespace backend.Controllers
             }
         }  
         
-        [HttpGet("/interests")]
+        [HttpGet("interests")]
         public ActionResult GetInterests()
         {
             try
@@ -71,7 +88,7 @@ namespace backend.Controllers
             }
         }      
         
-        [HttpGet("/jobs")]
+        [HttpGet("jobs")]
         public ActionResult GetJobs()
         {
             try
@@ -85,7 +102,7 @@ namespace backend.Controllers
             }
         }
         
-        [HttpGet("/subjects")]
+        [HttpGet("subjects")]
         public ActionResult GetSubjects()
         {
             try

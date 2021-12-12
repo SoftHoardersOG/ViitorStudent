@@ -45,6 +45,6 @@
       <mat-error>Password is required!</mat-error>
     </mat-form-field>
 
-    <button [disabled]="!loginForm.valid" mat-dialog-close="true" (click)="loginUser()" mat-button color="accent">Submit</button>
+    <button [disabled]="!loginForm.valid" (click)="loginUser()" mat-button color="accent">Submit</button>
   </form>
 </div>
