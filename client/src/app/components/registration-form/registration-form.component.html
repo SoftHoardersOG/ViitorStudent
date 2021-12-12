@@ -6,11 +6,11 @@
     fxLayoutAlign="space-around center"
     #registrationForm="ngForm"
   >
-    <h2>Create an account</h2>
+    <h2>Creaza un cont de utilizator</h2>
 
     <!-- USERNAME -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Username</mat-label>
+      <mat-label>Nume de utilizator</mat-label>
       <input
         type="text"
         matInput
@@ -21,7 +21,7 @@
         minlength="{{ this.usernameMinLength }}"
       />
       <mat-error *ngIf="registrationModel.username == ''; else tooShort"
-        >Username is required!</mat-error
+        >Numele de utilizator este obligatoriu!</mat-error
       >
       <ng-template #tooShort>
         <mat-error
@@ -30,17 +30,17 @@
             else used
           "
         >
-          Username is too short!</mat-error
+          Numele de utilizator prea scurt!</mat-error
         >
         <ng-template #used>
-          <mat-error>Username already used!</mat-error>
+          <mat-error>Nume de utilizator deja folosit!</mat-error>
         </ng-template>
       </ng-template>
     </mat-form-field>
 
     <!-- PASSWORD -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Password</mat-label>
+      <mat-label>Parola</mat-label>
       <input
         matInput
         required
@@ -59,31 +59,30 @@
         <mat-icon>{{ hide ? "visibility_off" : "visibility" }} </mat-icon>
       </button>
       <mat-error *ngIf="registrationModel.password == ''; else tooShort"
-        >Password is required!</mat-error
+        >Parola este obligatorie!</mat-error
       >
       <ng-template #tooShort>
-        <mat-error> Password is too short!</mat-error>
+        <mat-error> Parola prea scurta!</mat-error>
       </ng-template>
     </mat-form-field>
 
     <!-- FIRST NAME -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>First Name</mat-label>
+      <mat-label>Nume de familie</mat-label>
       <input
         type="text"
         matInput
-        placeholder="Ex. test"
         [(ngModel)]="registrationModel.firstName"
         required
         name="firstName"
       />
-      <mat-error *ngIf="registrationModel.firstName == ''">First name is required!</mat-error>
+      <mat-error *ngIf="registrationModel.firstName == ''">Numele de familie este obligatoriu!</mat-error>
     </mat-form-field>
 
 
     <!-- LAST NAME -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Last Name</mat-label>
+      <mat-label>Prenume</mat-label>
       <input
         matInput
         [(ngModel)]="registrationModel.lastName"
@@ -91,12 +90,12 @@
         required
         type="text"
       />
-      <mat-error *ngIf="registrationModel.lastName == ''">Last name is required!</mat-error>
+      <mat-error *ngIf="registrationModel.lastName == ''">Prenumele este obligatoriu!</mat-error>
     </mat-form-field>
 
 <!-- AGE -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Age</mat-label>
+      <mat-label>Varsta</mat-label>
       <input
         type="number"
         required
@@ -104,7 +103,7 @@
         [(ngModel)]="registrationModel.age"
         name="age"
       />
-      <mat-error *ngIf="registrationModel.age == 0" >Age is required!</mat-error>
+      <mat-error *ngIf="registrationModel.age == 0" >Varsta este obligatorie!</mat-error>
     </mat-form-field>
 
 <!-- EMAIL -->
@@ -117,13 +116,13 @@
         required
         name="email"
       />
-      <mat-error *ngIf="registrationModel.email == '';else wrongFormat">Email is required!</mat-error>
+      <mat-error *ngIf="registrationModel.email == '';else wrongFormat">Adresa Email este obligatorie!</mat-error>
       <ng-template #wrongFormat>
-          <mat-error>Email is not valid!</mat-error>
+          <mat-error>Adresa de Email nu este valida!</mat-error>
       </ng-template>
     </mat-form-field>
 
     <!-- ADD -->
-    <button [disabled]="!registrationForm.valid" (click)="addUser()" mat-button color="accent" >Submit</button>
+    <button [disabled]="!registrationForm.valid" (click)="addUser()" mat-button color="accent" >Creare</button>
   </form>
 </div>

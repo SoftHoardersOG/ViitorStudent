@@ -33,6 +33,32 @@ namespace backend.Controllers
         }
 
         [HttpGet]
+        [Route("${id}")]
+        public ActionResult GetExtendedUniversity( int id)
+        {
+            try
+            {
+                return Ok(_universityService.GetExtendedUniversity(id).Result);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return NotFound("Error trying to connect to database!");
+                
+            }
+        }
+
+        [HttpPost]
+        [Route("review")]
+        public ActionResult PostReview([FromBody] ReviewModel review)
+        {
+           
+                return Ok(_universityService.PostReview(review).Result);
+       
+
+        }
+
+        [HttpGet]
         public ActionResult GetAll()
         {
             try

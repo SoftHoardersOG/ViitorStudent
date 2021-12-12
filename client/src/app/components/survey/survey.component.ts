@@ -292,7 +292,7 @@ export class SurveyComponent implements OnInit {
     this.jobControl.setValue('', { emitEvent: true });
   }
   removeSubject(subjectId: number): void {
-    this.survey.cityIds = this.survey.subjectIds.filter((c) => c != subjectId);
+    this.survey.subjectIds = this.survey.subjectIds.filter((c) => c != subjectId);
     this.subjectControl.setValue('', { emitEvent: true });
   }
   removeInterest(interestId: number): void {

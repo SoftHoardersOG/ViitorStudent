@@ -1,3 +1,4 @@
+import { UserPageComponent } from '../user-page/user-page.component';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from 'src/app/models/user.model';
@@ -45,6 +46,10 @@ export class NavbarComponent implements OnInit {
   logout():void{
     this._loginService.logout();
     this.getCurrentUser();
+  }
+
+  openProfile(){
+    const profileRed = this._dialog.open(UserPageComponent, {width:"fitContent", height:"fitContent", data: this.currentUser})
   }
 
 }
