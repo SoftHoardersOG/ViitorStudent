@@ -40,7 +40,7 @@ export class UniversitiesComponent implements OnInit {
   @ViewChild('subjectInput') subjectInput: any;
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  enableForm: boolean = false;
+  enableForm: boolean = true;
   descendingOrder: boolean = false;
   arr: Array<UniversityCardModel> = new Array<UniversityCardModel>();
   arrMaxLength: number = 0;
@@ -62,6 +62,7 @@ export class UniversitiesComponent implements OnInit {
   sortingSurvey: SortingSurveyModel = new SortingSurveyModel();
 
   ngOnInit(): void {
+
     this._surveyService
       .getAllCities()
       .subscribe((data) => (this.cityOptions = this.cities = data));
@@ -162,10 +163,8 @@ export class UniversitiesComponent implements OnInit {
     //   .subscribe((data) => {
     //     this.arr = this.arr.concat(data);
     //   });
-    this._surveyService
-      .getUniversities(this.sortingSurvey)
-      .subscribe((data) => (this.arr = this.arr.concat(data)));
 
+    this.updateFilterModel();
     this.universityCardService.getUniversityCount().subscribe((data) => {
       this.arrMaxLength = data;
     });
@@ -252,15 +251,19 @@ export class UniversitiesComponent implements OnInit {
 
     this.subjectInput?.nativeElement.blur();
   }
-  submitForm() {
+  updateFilterModel():void{
+    console.log(this.enableForm);
+
     this._surveyService.getSurvey().subscribe((data) => {
       this.arr = new Array();
       this.sortingSurvey.sortFilter = this.sortFilter;
-      if (!this.enableForm) this.sortingSurvey.survey = data;
+      if (this.enableForm) this.sortingSurvey.survey = data;
+      else this.sortingSurvey.survey = new SurveyModel();
       this.sortingSurvey.startingPoint=0;
-      this._surveyService
-      .getUniversities(this.sortingSurvey)
-      .subscribe((data) => (this.arr = this.arr.concat(data)));
     });
   }
-}
+  submitForm() {
+    this.updateFilterModel();
+  }
+
+  }

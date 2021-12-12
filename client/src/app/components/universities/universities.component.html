@@ -3,7 +3,7 @@
     <mat-slide-toggle
       class="example-margin"
       color="primary"
-      (change)="this.enableForm = !this.enableForm"
+      [(ngModel)]="enableForm"
       name="EnableForm"
     >
       <span style="color: white">Tine cont de sondaj</span>
@@ -23,7 +23,7 @@
     fxLayoutAlign="space-around center"
   >
     <!-- City -->
-    
+
     <mat-form-field
       class="example-chip-list"
       appearance="fill"
@@ -41,7 +41,6 @@
           </button>
         </mat-chip>
         <input
-          formControlName="cityInput"
           (focusout)="this.cityControl.setValue('', { emitEvent: true })"
           placeholder="Poti alege mai multe orase"
           #cityInput
@@ -83,7 +82,6 @@
           </button>
         </mat-chip>
         <input
-          formControlName="subjectInput"
           (focusout)="subjectInput.value = ''"
           placeholder="Poti alege mai multe materii"
           #subjectInput
