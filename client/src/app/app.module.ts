@@ -19,7 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
-import { UserPageComponent } from './user-page/user-page.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 import { CardComponent } from './components/university-card/university-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { UniversitiesComponent } from './components/universities/universities.component';
@@ -33,9 +33,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { UniversityBigCardComponent } from './components/university-big-card/university-big-card.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CommentComponent } from './components/comment/comment.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 @NgModule({
-  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent, CommentComponent,SurveyComponent],
+  declarations: [MainComponent, RegistrationFormComponent, LoginFormComponent, NavbarComponent,LandingComponent,AboutUsComponent,CardComponent, UniversitiesComponent, UserPageComponent, UniversityBigCardComponent, CommentComponent,SurveyComponent, FavoriteComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

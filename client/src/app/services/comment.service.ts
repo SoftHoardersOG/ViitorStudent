@@ -7,7 +7,7 @@ export class CommentService {
   constructor() {}
   getComments(){
       ///chestii complicate https nu stiu 
-      return [{userName:"pisat", content: "lorem ipsum dolor"}, {userName:"cacat", content: "lorem ipsum dolor scandal pe mese arabe"}]
+      return [{userName:"pisat", title: "cacat", content: "lorem ipsum dolor", rating: 3},{userName:"pisat", title: "cacat", content: "lorem ipsum dolor", rating: 3},{userName:"pisat", title: "cacat", content: "lorem ipsum dolor", rating: 3}]
   }
   
   
