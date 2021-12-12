@@ -1,0 +1,11 @@
+<mat-icon (click)="onClick(1)" *ngIf="rating>=1 else star1">star</mat-icon> 
+<mat-icon (click)="onClick(2)" *ngIf="rating>=2 else star2">star</mat-icon> 
+<mat-icon (click)="onClick(3)" *ngIf="rating>=3 else star3">star</mat-icon> 
+<mat-icon (click)="onClick(4)" *ngIf="rating>=4 else star4">star</mat-icon> 
+<mat-icon (click)="onClick(5)" *ngIf="rating>=5 else star5">star</mat-icon>
+
+<ng-template #star1><mat-icon (click)="onClick(1)">star_border</mat-icon></ng-template>
+<ng-template #star2><mat-icon (click)="onClick(2)">star_border</mat-icon></ng-template>
+<ng-template #star3><mat-icon (click)="onClick(3)">star_border</mat-icon></ng-template>
+<ng-template #star4><mat-icon (click)="onClick(4)">star_border</mat-icon></ng-template>
+<ng-template #star5><mat-icon (click)="onClick(5)">star_border</mat-icon></ng-template>

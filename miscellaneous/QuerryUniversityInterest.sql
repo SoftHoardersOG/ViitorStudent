@@ -119,10 +119,20 @@ values (5,20);
 insert into UniversityInterest([interest_id],[university_id])
 values (6,22);
 
+insert into UniversityInterest([interest_id],[university_id])
+values (6,58);
+
+insert into UniversityInterest([interest_id],[university_id])
+values (6,60);
 /*Design*/
 insert into UniversityInterest([interest_id],[university_id])
 values (7,22);
 
+insert into UniversityInterest([interest_id],[university_id])
+values (7,58);
+
+insert into UniversityInterest([interest_id],[university_id])
+values (7,60);
 /*Sport*/
 insert into UniversityInterest([interest_id],[university_id])
 values (8,23);
@@ -226,6 +236,10 @@ values (12,49);
 insert into UniversityInterest([interest_id],[university_id])
 values (13,22);
 
+
+insert into UniversityInterest([interest_id],[university_id])
+values (13,60);
+
 /*Lucru cu animalele*/
 
 insert into UniversityInterest([interest_id],[university_id])
@@ -236,6 +250,9 @@ values (15,47);
 
 insert into UniversityInterest([interest_id],[university_id])
 values (15,54);
+
+insert into UniversityInterest([interest_id],[university_id])
+values (15,59);
 
 /*lucru cu copiii*/
 insert into UniversityInterest([interest_id],[university_id])

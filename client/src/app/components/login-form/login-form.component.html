@@ -10,9 +10,9 @@
   <div style="width: 100%;" >
   <button mat-icon-button mat-dialog-close style=" margin: 10px; float: right;"><mat-icon>close</mat-icon></button>
 </div>
-    <h2>Login into your account</h2>
+    <h2>Conecteaza-te</h2>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Username</mat-label>
+      <mat-label>Nume de utilizator</mat-label>
       <input
         matInput
         required
@@ -20,11 +20,11 @@
         [(ngModel)]="loginModel.username"
         name="username"
       />
-      <mat-error>Username is required!</mat-error>
+      <mat-error>Numele de utilizator este obligatoriu!</mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Password</mat-label>
+      <mat-label>Parola</mat-label>
       <input
         matInput
         required
@@ -42,9 +42,9 @@
     >
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }} </mat-icon>
     </button>
-      <mat-error>Password is required!</mat-error>
+      <mat-error>Parola este obligatorie!</mat-error>
     </mat-form-field>
 
-    <button [disabled]="!loginForm.valid" (click)="loginUser()" mat-button color="accent">Submit</button>
+    <button [disabled]="!loginForm.valid" (click)="loginUser()" mat-button color="accent">Logare</button>
   </form>
 </div>

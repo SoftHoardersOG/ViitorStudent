@@ -13,7 +13,7 @@ h1{
   margin-bottom: 4%;
 }
 button{
-  width:300px;
+  width:fit-content;
   padding-top: 2%;
   padding-bottom: 2%;
   font-size: 300%;

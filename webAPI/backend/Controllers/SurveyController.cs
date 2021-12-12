@@ -31,13 +31,15 @@ namespace backend.Controllers
                 if (username != " ")
                 {
                     
-                    return Ok(_surveyService.DeleteSurvey(username).Result);
+                    return Ok(new {
+                        key=_surveyService.DeleteSurvey(username).Result
+                    });
                 }
 
-                return Ok("none");
+                return Ok(new{key = "none" });
             }
 
-            return Ok("none");
+            return Ok(new { key = "none" });
         }
 
         [HttpPost("Survey")]
