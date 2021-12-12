@@ -11,7 +11,6 @@ namespace backend.Entities
         public City()
         {
             University = new HashSet<University>();
-            UniversityCity = new HashSet<UniversityCity>();
             UserCity = new HashSet<UserCity>();
         }
 
@@ -19,7 +18,6 @@ namespace backend.Entities
         public string name { get; set; }
 
         public virtual ICollection<University> University { get; set; }
-        public virtual ICollection<UniversityCity> UniversityCity { get; set; }
         public virtual ICollection<UserCity> UserCity { get; set; }
     }
 }

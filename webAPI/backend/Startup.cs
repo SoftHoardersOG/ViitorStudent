@@ -62,6 +62,7 @@ namespace backend
             services.AddScoped<IImageService,ImageService>();
             services.AddScoped<ILoginService,LoginService>();
             services.AddScoped<IUniversityService,UniversityService>();
+            services.AddScoped<ISortFilterService,SortFilterService>();
             services.AddScoped<ISurveyService, SurveyService>();
             services.AddScoped<IAutocompleteService, AutocompleteService>();
             services.AddControllers();

@@ -25,7 +25,6 @@ namespace backend.Mappers
             CreateMap<Club, ClubModel>().ForMember(cm => cm.Id, o => o.MapFrom(c => c.club_id)).ReverseMap();
             CreateMap<Subject, SubjectModel>().ForMember(sm => sm.Id, o => o.MapFrom(s => s.subject_id)).ReverseMap();
             CreateMap<Interest, InterestModel>().ForMember(im => im.Id, o => o.MapFrom(i => i.interest_id)).ReverseMap();
-
         }
     }
 }

@@ -46,10 +46,6 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[UniversityCity]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[UniversityClub]",
          "ObjectType": 0
       },
