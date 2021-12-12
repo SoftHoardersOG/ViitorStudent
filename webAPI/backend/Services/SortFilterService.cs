@@ -81,5 +81,25 @@ namespace backend.Services
             
             return await result.ToListAsync();
         }
+
+        public async Task<SurveyModel> GenerateSurvey(int userId)
+        {
+            var result= new SurveyModel
+            {
+                UserId = userId,
+                CityIds = await _dbCon.Set<UserCity>().Where(u => u.user_id == userId).Select(t => t.city_id).ToListAsync(),
+                InterestIds = await _dbCon.Set<UserInterest>().Where(u => u.user_id == userId).Select(t=> t.interest_id).ToListAsync(),
+                SubjectIds = await _dbCon.Set<UserSubject>().Where(u => u.user_id == userId).Select(t => t.subject_id).ToListAsync(),
+                ClubIds = await _dbCon.Set<UserClub>().Where(u => u.user_id == userId).Select(t => t.club_id).ToListAsync(),
+                JobIds = await _dbCon.Set<UserJob>().Where(u => u.user_id == userId).Select(t => t.job_id).ToListAsync()
+            };
+            if (!result.CityIds.Any() && !result.InterestIds.Any() && !result.SubjectIds.Any() &&
+                !result.ClubIds.Any() && !result.JobIds.Any())
+            {
+                return null;
+            }
+
+            return result;
+        }
     }
 }
