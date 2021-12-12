@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { CityModel } from 'src/app/models/city.model';
@@ -16,6 +22,7 @@ import { debounceTime } from 'rxjs';
 import { AutocompleteModel } from 'src/app/models/autocomplete.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserModel } from 'src/app/models/user.model';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-survey',
@@ -47,7 +54,8 @@ export class SurveyComponent implements OnInit {
     private _surveyService: SurveyService,
     private _loginService: LoginService,
     private _autocompleteService: AutocompleteService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public data: SurveyModel
   ) {}
   @ViewChild('cityInput') cityInput: any;
   @ViewChild('clubInput') clubInput: any;
@@ -56,28 +64,82 @@ export class SurveyComponent implements OnInit {
   @ViewChild('interestInput') interestInput: any;
 
   ngOnInit(): void {
+    console.log(this.data);
 
-    this._surveyService
-      .getAllCities()
-      .subscribe((data) => (this.cityOptions = this.cities = data));
-    this._surveyService
-      .getAllClubs()
-      .subscribe((data) => (this.clubOptions = this.clubs = data));
-    this._surveyService
-      .getAllJobs()
-      .subscribe((data) => (this.jobOptions = this.jobs = data));
-    this._surveyService
-      .getAllInterests()
-      .subscribe((data) => (this.interestOptions = this.interests = data));
-    this._surveyService
-      .getAllSubjects()
-      .subscribe((data) => (this.subjectOptions = this.subjects = data));
+    if (this.data) {
+      this.survey = this.data;
+    }
 
-    this._loginService.getCurrentUser().subscribe((data:UserModel) => {
-      if(data.userId)
-      this.survey.userId = data.userId;
-    } );
+    //CITY
+    this._surveyService
+    .getAllCities()
+    .subscribe((data) => (this.cities = data));
+    this._autocompleteService
+      .getOptionAutocomplete<CityModel>(
+        new AutocompleteModel('', this.survey.cityIds),
+        'city'
+      )
+      .subscribe((data: Array<CityModel>) => {
+        this.cityOptions = data;
+      });
 
+      //CLUB
+    this._surveyService
+    .getAllClubs()
+    .subscribe((data) => (this.clubs = data));
+    this._autocompleteService
+      .getOptionAutocomplete<ClubModel>(
+        new AutocompleteModel('', this.survey.clubIds),
+        'club'
+      )
+      .subscribe((data: Array<ClubModel>) => {
+        this.clubOptions = data;
+      });
+
+      //JOB
+    this._surveyService
+    .getAllJobs()
+    .subscribe((data) => (this.jobs = data));
+    this._autocompleteService
+      .getOptionAutocomplete<JobModel>(
+        new AutocompleteModel('', this.survey.jobIds),
+        'job'
+      )
+      .subscribe((data: Array<JobModel>) => {
+        this.jobOptions = data;
+      });
+
+      //INTEREST
+    this._surveyService
+    .getAllInterests()
+    .subscribe((data) => (this.interests = data));
+    this._autocompleteService
+      .getOptionAutocomplete<InterestModel>(
+        new AutocompleteModel('', this.survey.interestIds),
+        'interest'
+      )
+      .subscribe((data: Array<InterestModel>) => {
+        this.interestOptions = data;
+      });
+
+      // subjects
+    this._surveyService
+    .getAllSubjects()
+    .subscribe((data) => (this.subjects= data));
+    this._autocompleteService
+      .getOptionAutocomplete<SubjectModel>(
+        new AutocompleteModel('', this.survey.subjectIds),
+        'subject'
+      )
+      .subscribe((data: Array<SubjectModel>) => {
+        this.subjectOptions = data;
+      });
+
+
+
+    this._loginService.getCurrentUser().subscribe((data: UserModel) => {
+      if (data.userId) this.survey.userId = data.userId;
+    });
 
     // -------------------SUBSCRIBERS----------------------------------------------------
     this.cityControl.valueChanges
@@ -162,11 +224,19 @@ export class SurveyComponent implements OnInit {
       });
     // ---------------------------------------------------------------------------------------------
   }
-  submitForm(){
-    this._surveyService.postSurvey(this.survey).subscribe(data=>
-      this._snackBar.open("Sondaj adaugat cu succes!","",{duration:2000,panelClass: ['mat-toolbar','mat-accent']}),err=>
-      this._snackBar.open("A aparut o eroare in adaugarea sondajului!","",{duration:2000,panelClass: ['mat-toolbar','mat-warn']})
-      );
+  submitForm() {
+    this._surveyService.postSurvey(this.survey).subscribe(
+      (data) =>
+        this._snackBar.open('Sondaj adaugat cu succes!', '', {
+          duration: 2000,
+          panelClass: ['mat-toolbar', 'mat-accent'],
+        }),
+      (err) =>
+        this._snackBar.open('A aparut o eroare in adaugarea sondajului!', '', {
+          duration: 2000,
+          panelClass: ['mat-toolbar', 'mat-warn'],
+        })
+    );
   }
 
   //-----------------------------------------GETNAME-----------------------------------------------
@@ -208,7 +278,6 @@ export class SurveyComponent implements OnInit {
 
   //-----------------------------------------------------------------------------------------------
 
-
   //--------------------------------------REMOVERS------------------------------------------------
   removeCity(cityId: number): void {
     this.survey.cityIds = this.survey.cityIds.filter((c) => c != cityId);
@@ -227,7 +296,9 @@ export class SurveyComponent implements OnInit {
     this.subjectControl.setValue('', { emitEvent: true });
   }
   removeInterest(interestId: number): void {
-    this.survey.interestIds = this.survey.interestIds.filter((i) => i != interestId);
+    this.survey.interestIds = this.survey.interestIds.filter(
+      (i) => i != interestId
+    );
     this.interestControl.setValue('', { emitEvent: true });
   }
   // -----------------------------------------------------------------------------------------------
@@ -272,7 +343,7 @@ export class SurveyComponent implements OnInit {
 
     this.clubControl.setValue(null);
   }
-// INTEREST
+  // INTEREST
   addInterest(event: MatChipInputEvent): void {
     const value = event.value;
     console.log(value);
@@ -364,6 +435,5 @@ export class SurveyComponent implements OnInit {
 
     this.interestInput?.nativeElement.blur();
   }
-    // ---------------------------------------------------------------------
-
+  // ---------------------------------------------------------------------
 }

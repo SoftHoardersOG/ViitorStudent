@@ -24,19 +24,19 @@ export class LandingComponent implements OnInit {
   survey?: SurveyModel = undefined;
 
   ngOnInit(): void {
-    this.getInformation();
+    this._loginService.loginEvent$.subscribe((data: UserModel) => {
+      this.currentUser = data;
+      if (this.currentUser != undefined) this.getInformation();
+    });
   }
 
   getInformation(): void {
-    this._loginService.loginEvent$.subscribe((data: UserModel) => {
-      this.currentUser = data;
-      if (this.currentUser != undefined) {
-        this._surveyService.getSurvey().subscribe((data: SurveyModel) => {
-          if (data) {
-            this.survey = data;
-          }
-        });
-      }
+    this._surveyService.getSurvey().subscribe((data: SurveyModel) => {
+      console.log('Recived survey', data);
+
+        this.survey = data;
+        console.log('In if', this.survey);
+
     });
   }
 
@@ -50,16 +50,28 @@ export class LandingComponent implements OnInit {
   }
   retakeSurvey() {
     this._surveyService.deleteSurvey().subscribe((data) => {
-      const ref = this.openSurvey();
-      ref.afterClosed().subscribe(d =>{
+      console.log(this.survey);
+      const ref = this.openSurvey(this.survey);
+      ref.afterClosed().subscribe((d) => {
+        console.log('CLOSED');
         this.getInformation();
       });
     });
   }
-  openSurvey(): MatDialogRef<SurveyComponent> {
-    return this._dialog.open(SurveyComponent, {
+
+  makeSurvey() {
+    const ref = this.openSurvey();
+    ref.afterClosed().subscribe((d) => {
+      console.log('CLOSED');
+      this.getInformation();
+    });
+  }
+  openSurvey(survey?: SurveyModel): MatDialogRef<SurveyComponent> {
+    const ref = this._dialog.open(SurveyComponent, {
       width: '40%',
       height: 'fit-content',
+      data: survey,
     });
+    return ref;
   }
 }
