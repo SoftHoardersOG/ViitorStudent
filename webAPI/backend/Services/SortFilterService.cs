@@ -23,7 +23,7 @@ namespace backend.Services
             _mapper = mapper;
         }
 
-        public async Task<List<University>> Filter(SortFilterModel model, SurveyModel surveyModel=null)
+        public async Task<List<University>> Filter(SortFilterModel model, int startingPoint,int maxNumber,SurveyModel surveyModel=null)
         {
             var result = (model.SortingType == "ascending")
                 ? _dbCon.Set<University>().OrderBy(u => u.name).AsQueryable()
@@ -78,7 +78,8 @@ namespace backend.Services
                 result = result.Where(u => u.UniversitySubject.Any(uc => model.Subjects.Contains(uc.subject_id))).AsQueryable();
             }
 
-            
+            result = result.Skip(startingPoint).Take(maxNumber);
+
             return await result.ToListAsync();
         }
 
