@@ -27,6 +27,20 @@ namespace backend.Services
             return _mapper.Map<List<UniversityCard>>(result);
         }
 
+        public async Task<ReviewModel> PostReview(ReviewModel review)
+        {
+            _dbCon.Set<Reviews>().Add(_mapper.Map<Reviews>(review));
+            await _dbCon.SaveChangesAsync();
+            return review;
+        }
+
+        public async Task<ExtendedUniversityModel> GetExtendedUniversity(int id)
+        {
+            return _mapper.Map<ExtendedUniversityModel>(await _dbCon.Set<University>()
+                .Include(u => u.Reviews)
+                .FirstOrDefaultAsync(u => u.university_id == id));
+        }
+
         public async Task<int> GetUniversityCount()
         {
             return await _dbCon.University.CountAsync();

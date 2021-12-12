@@ -1,10 +1,10 @@
 import { UniversityCardModel } from './../models/university-card.model';
 import { apiURL } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { LoginModel } from './../models/login.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserModel } from '../models/user.model';
+import { UniversityExtendedModel } from '../models/university-extended.model';
+import { ReviewModel } from '../models/review.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +20,11 @@ export class UniversityCardService {
   }
   public getUniversityCount():Observable<number>{
     return this.http.get<number>(`${apiURL}/UniversityCard/count`);
+  }
+  public getExtendedUniversity(id:number):Observable<UniversityExtendedModel>{
+    return this.http.get<UniversityExtendedModel>(`${apiURL}/UniversityCard/$${id}`);
+  }
+  public postReview(review :ReviewModel){
+    return this.http.post<ReviewModel>(`${apiURL}/UniversityCard/review`,review);
   }
 }
