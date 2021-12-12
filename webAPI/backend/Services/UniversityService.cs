@@ -38,6 +38,7 @@ namespace backend.Services
         {
             return _mapper.Map<ExtendedUniversityModel>(await _dbCon.Set<University>()
                 .Include(u => u.Reviews)
+                .ThenInclude(r =>r.user)
                 .FirstOrDefaultAsync(u => u.university_id == id));
         }
 

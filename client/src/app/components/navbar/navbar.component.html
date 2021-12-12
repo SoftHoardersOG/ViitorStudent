@@ -8,7 +8,7 @@
     <button mat-button (click)="openLogin()">Logare</button>
   </ng-template>
   <mat-menu #userMenu="matMenu">
-    <button  mat-menu-item>Profil</button>
+    <button  mat-menu-item (click)="openProfile()">Profile</button>
     <button mat-menu-item (click)="logout()" class="mat-warn mat-toolbar">Logout</button>
   </mat-menu>
 </mat-toolbar>

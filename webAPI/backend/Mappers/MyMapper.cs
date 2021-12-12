@@ -31,8 +31,19 @@ namespace backend.Mappers
                 .ForMember(r => r.user_id, o => o
                     .MapFrom(u => u.UserId))
                 .ForMember(r=>r.university_id, o=>o
-                    .MapFrom(rm=>rm.UniversityId))
-                .ReverseMap();
+                    .MapFrom(rm=>rm.UniversityId));
+            CreateMap<Reviews, ReviewModel>()
+                .ForMember(rm => rm.UniversityId, o => o
+                    .MapFrom(r => r.university_id))
+                .ForMember(rm => rm.UserId, o => o
+                    .MapFrom(r => r.user_id))
+                .ForMember(r => r.UserUsername, o=>o
+                    .MapFrom(rm=>rm.user.username)) 
+                .ForMember(r => r.UserFirstName, o=>o
+                    .MapFrom(rm=>rm.user.firstName)) 
+                .ForMember(r => r.UserLastName, o=>o
+                    .MapFrom(rm=>rm.user.lastName))
+                ;
             CreateMap<University, ExtendedUniversityModel>()
                 .ForMember(ext => ext.Id, o => o
                     .MapFrom(u => u.university_id))

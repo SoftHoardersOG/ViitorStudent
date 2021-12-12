@@ -52,16 +52,10 @@ namespace backend.Controllers
         [Route("review")]
         public ActionResult PostReview([FromBody] ReviewModel review)
         {
-            try
-            {
+           
                 return Ok(_universityService.PostReview(review).Result);
-            }
-            catch (Exception e)
-            {
+       
 
-                Console.WriteLine(e);
-                return NotFound("Error when trying to post!");
-            }
         }
 
         [HttpGet]
