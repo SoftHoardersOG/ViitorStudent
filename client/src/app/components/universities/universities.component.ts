@@ -63,6 +63,10 @@ export class UniversitiesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this._loginService.loginEvent$.subscribe(data=>{
+      this.surveyModel.userId = data?.userId?data.userId:0;
+    });
+
     this._surveyService
       .getAllCities()
       .subscribe((data) => (this.cityOptions = this.cities = data));

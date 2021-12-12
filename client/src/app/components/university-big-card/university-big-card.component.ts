@@ -23,6 +23,7 @@ export class UniversityBigCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.newComment.universityId = this.data.university_id;
     this._universityService.getExtendedUniversity(this.data.university_id).subscribe(
       (result : UniversityExtendedModel) =>{
         this.extendedUniversity=result;
@@ -46,6 +47,9 @@ export class UniversityBigCardComponent implements OnInit {
     this.newComment.universityId = this.extendedUniversity.university_id;
     if(this.userId != undefined){
     this.newComment.userId = this.userId;
+    this.newComment.universityId = this.data.university_id;
+    console.log(this.newComment);
+
     this._universityService.postReview(this.newComment).subscribe(data =>{
       console.log(data);
       this._universityService.getExtendedUniversity(this.data.university_id).subscribe(

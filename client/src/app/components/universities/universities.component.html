@@ -1,21 +1,23 @@
 
   <div fxLayout="row" fxLayoutAlign="space-evenly center" style="padding: 50px">
     <mat-slide-toggle
+    *ngIf="this.surveyModel.userId"
       class="example-margin"
       color="primary"
       [(ngModel)]="enableForm"
       name="EnableForm"
     >
-      <span style="color: white">Tine cont de sondaj</span>
+      <span style="color: white">Afiseaza facultati pe baza recomandarilor noastre</span>
     </mat-slide-toggle>
     <!-- Toggle -->
-    <mat-slide-toggle
+
+    <!-- <mat-slide-toggle
       class="example-margin"
       color="primary"
       [checked]="descendingOrder"
     >
-      <span style="color: white">Show in descending order</span>
-    </mat-slide-toggle>
+      <span style="color: white">descending</span>
+    </mat-slide-toggle> -->
   </div>
   <div
     fxLayout.lt-md="column"
