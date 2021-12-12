@@ -13,4 +13,5 @@ namespace backend.IServices
         Task<int> GetUniversityCount();
         Task<List<UniversityCard>> GetUniversityFrom(int fromCount, int universityAmount);
     }
+
 }

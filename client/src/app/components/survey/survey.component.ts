@@ -343,7 +343,6 @@ export class SurveyComponent implements OnInit {
 
     this.clubControl.setValue(null);
   }
-  // INTEREST
   addInterest(event: MatChipInputEvent): void {
     const value = event.value;
     console.log(value);
@@ -357,7 +356,6 @@ export class SurveyComponent implements OnInit {
 
     this.interestControl.setValue(null);
   }
-  // SUBJECT
   addSubject(event: MatChipInputEvent): void {
     const value = event.value;
     console.log(value);

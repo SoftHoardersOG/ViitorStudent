@@ -45,18 +45,10 @@ namespace backend.Controllers
         [HttpPost]
         public ActionResult GetSorted(SortingAndSurveyModel sortingAndSurvey)
         {
-            SurveyModel surveyModel = sortingAndSurvey.surveyModel;
-            SortFilterModel sortModel = sortingAndSurvey.sortFilterModel;
+            SurveyModel surveyModel = sortingAndSurvey.survey;
+            SortFilterModel sortModel = sortingAndSurvey.sortFilter;
             try
             {
-                if (
-                    !surveyModel.InterestIds.Any() && !surveyModel.CityIds.Any()
-                                                   && !surveyModel.JobIds.Any() && !surveyModel.ClubIds.Any()
-                                                   && !surveyModel.SubjectIds.Any()
-                )
-                {
-                    return Ok(_sortFilterService.Filter(sortModel,sortingAndSurvey.startingPoint,sortingAndSurvey.maxNumber).Result);
-                }
                 return Ok(_sortFilterService.Filter(sortModel, sortingAndSurvey.startingPoint, sortingAndSurvey.maxNumber,surveyModel).Result);
             }
             catch (Exception e)

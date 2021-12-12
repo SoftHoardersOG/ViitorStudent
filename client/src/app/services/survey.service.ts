@@ -1,3 +1,5 @@
+import { UniversityCardModel } from './../models/university-card.model';
+import { SortingSurveyModel } from './../models/sorting-survey.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -46,6 +48,10 @@ export class SurveyService {
 
   getSurvey():Observable<SurveyModel>{
     return this.http.get<SurveyModel>(`${apiURL}/SortingFilter/survey`);
+  }
+
+  getUniversities(sortingSurvey:SortingSurveyModel):Observable<UniversityCardModel>{
+    return this.http.post<UniversityCardModel>(`${apiURL}/SortingFilter`,sortingSurvey);
   }
 
 

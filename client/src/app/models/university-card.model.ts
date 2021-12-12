@@ -1,5 +1,5 @@
 export class UniversityCardModel {
-  id: number = 0;
+  university_id: number = 0;
   name: string = '';
   group: string = '';
   shortDescription: string = '';
