@@ -62,7 +62,7 @@ namespace backend.Services
             return VerifyCredentials(loginModel).Result ? GenerateJwt(loginModel) : null;
         }
 
-        private async Task<User> GetUser(string username)
+        public async Task<User> GetUser(string username)
         {
             User user = await _dbCon.Set<User>().FirstOrDefaultAsync(u => u.username == username);
             return user;

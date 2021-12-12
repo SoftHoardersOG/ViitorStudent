@@ -14,11 +14,13 @@ namespace backend.Services
     {
         private readonly DbCon _dbCon;
         private readonly IMapper _mapper;
+        private readonly ILoginService _loginService;
 
-        public SurveyService(DbCon dbCon, IMapper mapper)
+        public SurveyService(DbCon dbCon, IMapper mapper, ILoginService loginService)
         {
             _dbCon = dbCon;
             _mapper = mapper;
+            _loginService = loginService;
         }
 
         private static List<UserCity> CreateUserCities(SurveyModel survey)
@@ -54,8 +56,16 @@ namespace backend.Services
                 .Select(subjectId => new UserSubject() {subject_id = subjectId, user_id = survey.UserId}).ToList();
         }
 
+        public async Task<string> DeleteSurvey(string username)
+        {
+            User currentUser = await _loginService.GetUser(username);
+            var cities = _dbCon.Set<UserCity>().Where(uc => uc.user_id == currentUser.user_id);
+            _dbCon.Set<UserCity>().RemoveRange(_dbCon.Set<UserCity>().Where(uc => uc.user_id == currentUser.user_id));
+            await _dbCon.SaveChangesAsync();
+            return "Done";
+        }
 
-        public async Task AddSurveyToUser(SurveyModel survey)
+        public async Task<SurveyModel> AddSurveyToUser(SurveyModel survey)
         {
             await _dbCon.UserCity.AddRangeAsync(CreateUserCities(survey));
             await _dbCon.UserJob.AddRangeAsync(CreateUserJobs(survey));
@@ -63,6 +73,7 @@ namespace backend.Services
             await _dbCon.UserClub.AddRangeAsync(CreateUserClubs(survey));
             await _dbCon.UserSubject.AddRangeAsync(CreateUserSubjects(survey));
             await _dbCon.SaveChangesAsync();
+            return survey;
         }
 
         public async Task<List<CityModel>> GetCities()
