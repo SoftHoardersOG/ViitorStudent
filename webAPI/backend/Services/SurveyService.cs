@@ -58,11 +58,53 @@ namespace backend.Services
 
         public async Task<string> DeleteSurvey(string username)
         {
-            User currentUser = await _loginService.GetUser(username);
-            var cities = _dbCon.Set<UserCity>().Where(uc => uc.user_id == currentUser.user_id);
-            _dbCon.Set<UserCity>().RemoveRange(_dbCon.Set<UserCity>().Where(uc => uc.user_id == currentUser.user_id));
-            await _dbCon.SaveChangesAsync();
-            return "Done";
+            var exists = false;
+            var currentUser = await _loginService.GetUser(username);
+            var cities = _dbCon.Set<UserCity>().Where(o => o.user_id == currentUser.user_id);
+            var jobs = _dbCon.Set<UserJob>().Where(o => o.user_id == currentUser.user_id);
+            var interests = _dbCon.Set<UserInterest>().Where(o => o.user_id == currentUser.user_id);
+            var subjects = _dbCon.Set<UserSubject>().Where(o => o.user_id == currentUser.user_id);
+            var clubs = _dbCon.Set<UserClub>().Where(o => o.user_id == currentUser.user_id);
+
+            if (await cities.AnyAsync())
+            {
+                _dbCon.Set<UserCity>().RemoveRange(cities);
+                exists = true;
+            }
+
+            if (await jobs.AnyAsync())
+            {
+                _dbCon.Set<UserJob>().RemoveRange(jobs);
+                exists = true;
+            }
+
+            if (await interests.AnyAsync())
+            {
+                _dbCon.Set<UserInterest>().RemoveRange(interests);
+                exists = true;
+            }
+
+            if (await subjects.AnyAsync())
+            {
+                _dbCon.Set<UserSubject>().RemoveRange(subjects);
+                exists = true;
+            }
+
+            if (await cities.AnyAsync())
+            {
+                _dbCon.Set<UserClub>().RemoveRange(clubs);
+                exists = true;
+            }
+
+            if (exists)
+            {
+                await _dbCon.SaveChangesAsync();
+                return "Done";
+            }
+            else
+            {
+                return "None";
+            }
         }
 
         public async Task<SurveyModel> AddSurveyToUser(SurveyModel survey)

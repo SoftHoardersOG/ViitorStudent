@@ -40,5 +40,13 @@ export class SurveyService {
     return this.http.post<SurveyModel>(`${apiURL}/Survey`,survey);
   }
 
+  deleteSurvey():Observable<string>{
+    return this.http.delete<string>(`${apiURL}/Survey`);
+  }
+
+  getSurvey():Observable<SurveyModel>{
+    return this.http.get<SurveyModel>(`${apiURL}/SortingFilter/survey`);
+  }
+
 
 }

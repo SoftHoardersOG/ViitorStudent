@@ -1,6 +1,12 @@
 <img src="assets/background.jpg" alt="background image" style="object-fit: cover;">
 <h1>Viitor student</h1>
 <div fxLayout="column" fxLayoutAlign="center center" >
-  <button *ngIf="currentUser==null" mat-flat-button (click)="openRegistration()">Get Started</button>
-  <button *ngIf="currentUser!=null" mat-flat-button (click)="openSurvey()">Take a survey</button>
+  <button *ngIf="currentUser==null;else survey" mat-flat-button (click)="openRegistration()">Sa incepem!</button>
+<ng-template #survey>
+  <button *ngIf="survey==undefined; else existingSurvey" mat-flat-button (click)="openSurvey()">Completeaza un formular</button>
+  <ng-template #existingSurvey>
+    <p>Deja ai completat formularul si iti putem recomanda facultatile. Vrei sa il reiei?</p>
+    <button mat-flat-button (click)="retakeSurvey()">Refacere formular</button>
+  </ng-template>
+</ng-template>
 </div>
