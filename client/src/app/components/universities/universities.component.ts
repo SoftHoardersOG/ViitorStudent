@@ -54,7 +54,7 @@ export class UniversitiesComponent implements OnInit {
   cities: Array<CityModel> = new Array();
 
   sortFilter: SortFilter = new SortFilter();
-  surveyModel: SurveyModel = new SurveyModel();
+  surveyModel?: SurveyModel = undefined;
 
   subjects: Array<SubjectModel> = new Array();
   subjectControl: FormControl = new FormControl();
@@ -63,9 +63,7 @@ export class UniversitiesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._loginService.loginEvent$.subscribe(data=>{
-      this.surveyModel.userId = data?.userId?data.userId:0;
-    });
+   this._surveyService.$surveyChanged.subscribe(data=> {this.surveyModel=data, this.submitForm()})
 
     this._surveyService
       .getAllCities()
@@ -73,10 +71,6 @@ export class UniversitiesComponent implements OnInit {
     this._surveyService
       .getAllSubjects()
       .subscribe((data) => (this.subjectOptions = this.subjects = data));
-
-    this._loginService.getCurrentUser().subscribe((data: UserModel) => {
-      if (data.userId) this.surveyModel.userId = data.userId;
-    });
 
     this.cityControl.valueChanges
       .pipe(debounceTime(300))

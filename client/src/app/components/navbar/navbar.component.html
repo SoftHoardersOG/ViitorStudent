@@ -1,6 +1,6 @@
 <mat-toolbar fxLayout="row"  fxLayoutAlign="space-between center">
   <button mat-button (click)="openAboutUs()" >Despre noi</button>
-  <button *ngIf="currentUser != null; else login" mat-button [matMenuTriggerFor]="userMenu">
+  <button *ngIf="currentUser != undefined; else login" mat-button [matMenuTriggerFor]="userMenu">
     Salut, {{ currentUser?.firstName }} {{ currentUser?.lastName }}
     <mat-icon>arrow_drop_down</mat-icon>
   </button>

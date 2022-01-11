@@ -1,5 +1,6 @@
 import { UserModel } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-main',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  constructor() { 
-    
+  constructor(private _loginEvent : LoginService) {
+
   }
 
   ngOnInit(): void {
+    this._loginEvent.getCurrentUser().subscribe(
+      user => {
+        this._loginEvent.emit(user);
+      }
+    )
   }
 
 }

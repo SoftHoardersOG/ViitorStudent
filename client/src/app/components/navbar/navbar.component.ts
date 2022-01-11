@@ -17,22 +17,13 @@ export class NavbarComponent implements OnInit {
   currentUser?: UserModel = undefined;
 
   ngOnInit(): void {
-   this.getCurrentUser();
+    this._loginService.loginEvent$.subscribe((user)=> {this.currentUser=user, console.log("emitted" + user);
+    } );
   }
 
-  getCurrentUser():void{
-    this._loginService.getCurrentUser().subscribe(
-      (data: UserModel) => (this.currentUser = data),
-      (err) => (this.currentUser = undefined),
-      ()=>{this._loginService.emit(this.currentUser)}
-    );
-  }
 
   openLogin(): void {
     const loginRef = this._dialog.open(LoginFormComponent);
-    loginRef.afterClosed().subscribe(res =>{
-      this.getCurrentUser();
-    })
   }
 
   openAboutUs(){
@@ -45,7 +36,6 @@ export class NavbarComponent implements OnInit {
 
   logout():void{
     this._loginService.logout();
-    this.getCurrentUser();
   }
 
   openProfile(){

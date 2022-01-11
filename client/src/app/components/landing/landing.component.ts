@@ -24,20 +24,8 @@ export class LandingComponent implements OnInit {
   survey?: SurveyModel = undefined;
 
   ngOnInit(): void {
-    this._loginService.loginEvent$.subscribe((data: UserModel) => {
-      this.currentUser = data;
-      if (this.currentUser != undefined) this.getInformation();
-    });
-  }
-
-  getInformation(): void {
-    this._surveyService.getSurvey().subscribe((data: SurveyModel) => {
-      console.log('Recived survey', data);
-
-        this.survey = data;
-        console.log('In if', this.survey);
-
-    });
+   this._surveyService.$surveyChanged.subscribe(data=>this.survey=data)
+   this._loginService.loginEvent$.subscribe(data=>this.currentUser=data)
   }
 
   openRegistration(): MatDialogRef<RegistrationFormComponent> {
@@ -48,13 +36,14 @@ export class LandingComponent implements OnInit {
       minHeight: '600px',
     });
   }
+
   retakeSurvey() {
+    let lastSurvey = this.survey;
+    this._surveyService.$surveyChanged.emit();
     this._surveyService.deleteSurvey().subscribe((data) => {
-      console.log(this.survey);
-      const ref = this.openSurvey(this.survey);
+      const ref = this.openSurvey(lastSurvey);
       ref.afterClosed().subscribe((d) => {
         console.log('CLOSED');
-        this.getInformation();
       });
     });
   }
@@ -63,9 +52,10 @@ export class LandingComponent implements OnInit {
     const ref = this.openSurvey();
     ref.afterClosed().subscribe((d) => {
       console.log('CLOSED');
-      this.getInformation();
     });
+
   }
+
   openSurvey(survey?: SurveyModel): MatDialogRef<SurveyComponent> {
     const ref = this._dialog.open(SurveyComponent, {
       width: '40%',

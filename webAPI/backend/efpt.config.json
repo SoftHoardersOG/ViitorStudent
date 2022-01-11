@@ -90,7 +90,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "DESKTOP-G0BD7P1.ViitorStudent",
+   "UiHint": "(LocalDB)\\MSSQLLocalDB.ViitorStudent",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,
    "UseDbContextSplitting": false,
@@ -98,6 +98,7 @@
    "UseHandleBars": false,
    "UseInflector": false,
    "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
    "UseNoConstructor": false,
    "UseNoDefaultConstructor": false,
    "UseNoNavigations": false,

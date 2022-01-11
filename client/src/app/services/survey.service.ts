@@ -10,13 +10,25 @@ import { InterestModel } from '../models/interest.model';
 import { JobModel } from '../models/job.model';
 import { SubjectModel } from '../models/subject.model';
 import { SurveyModel } from '../models/survey.model';
+import { UserModel } from '../models/user.model';
+import { EventEmitter } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurveyService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private _loginService: LoginService) {
+    _loginService.loginEvent$.subscribe(data =>
+      this.getSurvey().subscribe(
+        data => this.$surveyChanged.emit(data),
+        err => this.$surveyChanged.emit(undefined)
+      )
+      )
+  }
+
+  public $surveyChanged : EventEmitter<SurveyModel> = new EventEmitter();
 
   getAllCities() : Observable<Array<CityModel>>{
     return this.http.get<Array<CityModel>>(`${apiURL}/cities`);
@@ -39,10 +51,12 @@ export class SurveyService {
   }
 
   postSurvey(survey:SurveyModel) : Observable<SurveyModel>{
+    this.$surveyChanged.emit(survey);
     return this.http.post<SurveyModel>(`${apiURL}/Survey`,survey);
   }
 
   deleteSurvey():Observable<string>{
+    this.$surveyChanged.emit();
     return this.http.delete<string>(`${apiURL}/Survey`);
   }
 

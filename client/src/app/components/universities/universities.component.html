@@ -1,7 +1,7 @@
 
   <div fxLayout="row" fxLayoutAlign="space-evenly center" style="padding: 50px">
     <mat-slide-toggle
-    *ngIf="this.surveyModel.userId"
+    *ngIf="this.surveyModel!=undefined"
       class="example-margin"
       color="primary"
       [(ngModel)]="enableForm"

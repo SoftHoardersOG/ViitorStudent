@@ -18,6 +18,12 @@ export class LoginFormComponent implements OnInit {
   loginUser(): void {
     this.loginService.loginUser(this.loginModel).subscribe((data) => {
       localStorage.setItem('jwt', data.token);
+      console.log(data);
+      this.loginService.getCurrentUser().subscribe(
+        user => {
+          this.loginService.emit(user);
+        }
+      );
       this.dialogRef.close();
     }, err => this._snackBar.open(err.error,"",{duration:2000,panelClass: ['mat-toolbar','mat-warn']}));
   }
