@@ -118,13 +118,7 @@ export class UniversitiesComponent implements OnInit {
         document.documentElement.scrollHeight,
         document.documentElement.offsetHeight
       );
-      console.log(
-        this.scrollY,
-        maxHeight,
-        maxHeight - this.scrollY,
-        this.shouldRequest,
-        this.universityAmount
-      );
+
       if (
         maxHeight - this.scrollY < 1400 &&
         this.shouldRequest &&
@@ -141,26 +135,12 @@ export class UniversitiesComponent implements OnInit {
             this.arr = this.arr.concat(data);
             this.shouldRequest = true;
           });
-        // this.universityCardService
-        //   .lazyGetUniversities(
-        //     this.arr.length,
-        //     Math.ceil(this.universityAmount)
-        //   )
-        //   .subscribe((data) => {
-        //     this.arr = this.arr.concat(data);
-        //     this.shouldRequest = true;
-        //   });
+
       }
     });
     this.windowWidth = window.innerWidth;
     this.universityAmount = this.windowWidth / 200;
     console.log(this.windowWidth, this.windowWidth / 200);
-
-    // this.universityCardService
-    //   .lazyGetUniversities(this.arr.length, Math.ceil(this.universityAmount))
-    //   .subscribe((data) => {
-    //     this.arr = this.arr.concat(data);
-    //   });
 
     this.updateFilterModel();
     this.universityCardService.getUniversityCount().subscribe((data) => {
@@ -258,6 +238,12 @@ export class UniversitiesComponent implements OnInit {
       if (this.enableForm) this.sortingSurvey.survey = data;
       else this.sortingSurvey.survey = new SurveyModel();
       this.sortingSurvey.startingPoint=0;
+
+    },
+    (err)=>
+    {
+      this.arr = new Array();
+      this.sortingSurvey.sortFilter = this.sortFilter;
     });
   }
   submitForm() {

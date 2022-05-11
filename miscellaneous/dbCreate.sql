@@ -1,6 +1,8 @@
 /*DROP DATABASE IF EXISTS ViitorStudent;*/
 USE ViitorStudent;
 
+/* --------- USER --------- */
+
 CREATE TABLE [User](
 [user_id] INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 username VARCHAR(255) NOT NULL,
@@ -12,6 +14,8 @@ age INT,
 [role] VARCHAR(255) NOT NULL,
 join_date DATETIME,
 );
+
+/* --------------------- */
 
 /* --------- RECOMANDATION FORM --------- */
 
@@ -58,7 +62,6 @@ FOREIGN KEY(club_id) REFERENCES [Club](club_id),
 [user_id] INT NOT NULL,
 FOREIGN KEY([user_id]) REFERENCES [User]([user_id])
 )
-
 
 CREATE TABLE UserInterest(
 userInterest_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
@@ -110,7 +113,10 @@ university_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 city_id INT NOT NULL,
 FOREIGN KEY(city_id) REFERENCES City(city_id)
 )
+/* --------------------------- */
 
+
+/* --------- REVIEWS--------- */
 CREATE TABLE Reviews(
 review_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 
@@ -194,6 +200,11 @@ meeting_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 FOREIGN KEY([university_id]) REFERENCES [University]([university_id])
 )
 
+/* --------------------------- */
+
+
+/* ----------MANY TO MANY USER -> MEETING----------------- */
+
 CREATE TABLE UserMetings(
 userMeeting_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 
@@ -204,5 +215,4 @@ FOREIGN KEY(meeting_id) REFERENCES Meeting(meeting_id),
 FOREIGN KEY([user_id]) REFERENCES [User]([user_id])
 
 )
-
 /* --------------------------- */

@@ -2,7 +2,7 @@ MAIN:
 ----Navbar
 ----------LoginComponent
 ----------AboutUs
-----------*UserProfile
+----------UserProfile
 ----LandingPage
 ----------UniversityCard
           ----------UniversityInfo

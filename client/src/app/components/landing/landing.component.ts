@@ -13,6 +13,7 @@ import { SurveyComponent } from '../survey/survey.component';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'],
 })
+
 export class LandingComponent implements OnInit {
   constructor(
     public _dialog: MatDialog,
