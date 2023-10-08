@@ -11,8 +11,7 @@ import { UserModel } from '../models/user.model';
 export class LoginService {
 
   constructor(private http: HttpClient) {}
-  public loginEvent$ : EventEmitter<UserModel> = new EventEmitter();
-
+  
   public emit(user? : UserModel) : void{
     this.loginEvent$.emit(user);
   }

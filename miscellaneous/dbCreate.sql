@@ -1,4 +1,5 @@
 /*DROP DATABASE IF EXISTS ViitorStudent;*/
+CREATE DATABASE ViitorStudent;
 USE ViitorStudent;
 
 /* --------- USER --------- */
@@ -191,7 +192,7 @@ FOREIGN KEY([university_id]) REFERENCES [University]([university_id])
 CREATE TABLE Meeting(
 meeting_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 [name] VARCHAR(255) NOT NULL,
-[date] DATETIMP NOT NULL,
+[date] DATETIME NOT NULL,
 [description] VARCHAR(255),
 [price] INT NOT NULL,
 [link] VARCHAR(255) NOT NULL,
