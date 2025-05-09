@@ -20,6 +20,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { apiURL } from 'src/environments/environment';
 
 @Component({
   selector: 'universities',
@@ -43,6 +44,7 @@ export class UniversitiesComponent implements OnInit {
   enableForm: boolean = true;
   descendingOrder: boolean = false;
   arr: Array<UniversityCardModel> = new Array<UniversityCardModel>();
+  imgUrl: string = apiURL + '/images/';
   arrMaxLength: number = 0;
   scrollY: number = 0;
   shouldRequest: boolean = true;

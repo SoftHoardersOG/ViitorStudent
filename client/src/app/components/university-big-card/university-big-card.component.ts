@@ -7,6 +7,7 @@ import { UniversityCardService } from 'src/app/services/university-card.service'
 import { CommentService } from 'src/app/services/comment.service';
 import { ReviewModel } from 'src/app/models/review.model';
 import { LoginService } from 'src/app/services/login.service';
+import { apiURL } from 'src/environments/environment';
 
 @Component({
   selector: 'app-university-big-card',
@@ -19,6 +20,7 @@ export class UniversityBigCardComponent implements OnInit {
   extendedUniversity: UniversityExtendedModel = new UniversityExtendedModel();
   newComment: ReviewModel= new ReviewModel();
   userId?: number=undefined;
+  imgUrl: string = apiURL + '/images/';
   constructor(@Inject(MAT_DIALOG_DATA) public data: UniversityCardModel, private _universityService:UniversityCardService,private _loginService:LoginService) {
   }
 

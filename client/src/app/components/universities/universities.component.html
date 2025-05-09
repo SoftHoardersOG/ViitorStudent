@@ -115,7 +115,7 @@
       email="{{ university.email }}"
       phoneNumber="{{ university.phoneNumber }}"
       address="{{ university.address }}"
-      imageUrl="http://localhost:29949/api/images/?universityId={{
+      imageUrl="{{ imgUrl }}?universityId={{
         university.university_id
       }}"
       (click)="showBig(university)"

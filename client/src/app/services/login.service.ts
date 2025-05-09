@@ -9,9 +9,10 @@ import { UserModel } from '../models/user.model';
   providedIn: 'root',
 })
 export class LoginService {
+  public loginEvent$ : EventEmitter<UserModel> = new EventEmitter();
 
   constructor(private http: HttpClient) {}
-  
+
   public emit(user? : UserModel) : void{
     this.loginEvent$.emit(user);
   }

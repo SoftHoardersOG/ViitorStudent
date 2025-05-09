@@ -14,7 +14,6 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "cacat": "pisat",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
